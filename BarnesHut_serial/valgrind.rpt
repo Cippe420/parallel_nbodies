@@ -1,0 +1,1178 @@
+==6588== Memcheck, a memory error detector
+==6588== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6588== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==6588== Command: ./main
+==6588== Parent PID: 5312
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B696: tree__insert (tree.c:228)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6A3: tree__insert (tree.c:228)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6B0: tree__insert (tree.c:228)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6BD: tree__insert (tree.c:228)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6CA: tree__insert (tree.c:228)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B696: tree__insert (tree.c:228)
+==6588==    by 0x10B868: tree__insert (tree.c:247)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6A3: tree__insert (tree.c:228)
+==6588==    by 0x10B868: tree__insert (tree.c:247)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6B0: tree__insert (tree.c:228)
+==6588==    by 0x10B868: tree__insert (tree.c:247)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6BD: tree__insert (tree.c:228)
+==6588==    by 0x10B868: tree__insert (tree.c:247)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6CA: tree__insert (tree.c:228)
+==6588==    by 0x10B868: tree__insert (tree.c:247)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B696: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6A3: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6B0: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6BD: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6CA: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10A5ED: calculate_force (tree.c:73)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1094C4: main (main.c:45)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Invalid free() / delete / delete[] / realloc()
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 alloc'd
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA6E: Tree__free (tree.c:281)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B970: tree__insert (tree.c:266)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B970: tree__insert (tree.c:266)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B970: tree__insert (tree.c:266)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10BA5D: Tree__free (tree.c:278)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B970: tree__insert (tree.c:266)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA9E: Tree__free (tree.c:284)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B970: tree__insert (tree.c:266)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109343: print_sim (main.c:23)
+==6588==    by 0x109798: main (main.c:63)
+==6588==  Address 0x4b8a050 is 16 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109366: print_sim (main.c:23)
+==6588==    by 0x109798: main (main.c:63)
+==6588==  Address 0x4b8a048 is 8 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109389: print_sim (main.c:23)
+==6588==    by 0x109798: main (main.c:63)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x1093AC: print_sim (main.c:23)
+==6588==    by 0x109798: main (main.c:63)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B980: tree__insert (tree.c:267)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B988: tree__insert (tree.c:267)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B99D: tree__insert (tree.c:268)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9A6: tree__insert (tree.c:268)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9B2: tree__insert (tree.c:268)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a080 is 64 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9BB: tree__insert (tree.c:268)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9E0: tree__insert (tree.c:269)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9E9: tree__insert (tree.c:269)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9F5: tree__insert (tree.c:269)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a088 is 72 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B9FE: tree__insert (tree.c:269)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B73F: tree__insert (tree.c:237)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B769: tree__insert (tree.c:238)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B772: tree__insert (tree.c:238)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7AD: tree__insert (tree.c:239)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7B6: tree__insert (tree.c:239)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7DC: tree__insert (tree.c:241)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7F3: tree__insert (tree.c:241)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B696: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6A3: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6B0: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6BD: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6CA: tree__insert (tree.c:228)
+==6588==    by 0x10B81D: tree__insert (tree.c:243)
+==6588==    by 0x10BA32: tree__insert (tree.c:270)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B931: tree__insert (tree.c:263)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B73F: tree__insert (tree.c:237)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B769: tree__insert (tree.c:238)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a080 is 64 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B772: tree__insert (tree.c:238)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7AD: tree__insert (tree.c:239)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a088 is 72 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7B6: tree__insert (tree.c:239)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B7DC: tree__insert (tree.c:241)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a080 is 64 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B827: tree__insert (tree.c:245)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a080 is 64 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B872: tree__insert (tree.c:249)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a080 is 64 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10B889: tree__insert (tree.c:249)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Address 0x4b8a088 is 72 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B696: tree__insert (tree.c:228)
+==6588==    by 0x10B8B3: tree__insert (tree.c:251)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6A3: tree__insert (tree.c:228)
+==6588==    by 0x10B8B3: tree__insert (tree.c:251)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6B0: tree__insert (tree.c:228)
+==6588==    by 0x10B8B3: tree__insert (tree.c:251)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6BD: tree__insert (tree.c:228)
+==6588==    by 0x10B8B3: tree__insert (tree.c:251)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x10B6CA: tree__insert (tree.c:228)
+==6588==    by 0x10B8B3: tree__insert (tree.c:251)
+==6588==    by 0x10BA45: tree__insert (tree.c:271)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B95B: tree__insert (tree.c:265)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A57B: calculate_force (tree.c:70)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A596: calculate_force (tree.c:71)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A624: calculate_force (tree.c:80)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A627: calculate_force (tree.c:80)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A62A: calculate_force (tree.c:80)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a050 is 16 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A62D: calculate_force (tree.c:80)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a048 is 8 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10A630: calculate_force (tree.c:80)
+==6588==    by 0x10956F: main (main.c:55)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10958E: main (main.c:56)
+==6588==  Address 0x4b8a048 is 8 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x1095B6: main (main.c:56)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid write of size 8
+==6588==    at 0x1095F0: main (main.c:56)
+==6588==  Address 0x4b8a048 is 8 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109613: main (main.c:57)
+==6588==  Address 0x4b8a050 is 16 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x10963B: main (main.c:57)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid write of size 8
+==6588==    at 0x109675: main (main.c:57)
+==6588==  Address 0x4b8a050 is 16 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109698: main (main.c:58)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x1096BB: main (main.c:58)
+==6588==  Address 0x4b8a048 is 8 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid write of size 8
+==6588==    at 0x1096EE: main (main.c:58)
+==6588==  Address 0x4b8a058 is 24 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109711: main (main.c:59)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid read of size 8
+==6588==    at 0x109734: main (main.c:59)
+==6588==  Address 0x4b8a050 is 16 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid write of size 8
+==6588==    at 0x109767: main (main.c:59)
+==6588==  Address 0x4b8a060 is 32 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Conditional jump or move depends on uninitialised value(s)
+==6588==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Uninitialised value was created by a heap allocation
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10B946: tree__insert (tree.c:264)
+==6588==    by 0x1094FE: main (main.c:49)
+==6588== 
+==6588== Invalid free() / delete / delete[] / realloc()
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA8E: Tree__free (tree.c:283)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Address 0x4b8a068 is 40 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== Invalid free() / delete / delete[] / realloc()
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x1097B4: main (main.c:65)
+==6588==  Address 0x4b8a040 is 0 bytes inside a block of size 80 free'd
+==6588==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x10BAAE: Tree__free (tree.c:285)
+==6588==    by 0x10BA7E: Tree__free (tree.c:282)
+==6588==    by 0x109787: main (main.c:62)
+==6588==  Block was alloc'd at
+==6588==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6588==    by 0x109E2E: earth_sun__init (particles.c:114)
+==6588==    by 0x10987A: simulation__init (particles.c:21)
+==6588==    by 0x109481: main (main.c:38)
+==6588== 
+==6588== 
+==6588== HEAP SUMMARY:
+==6588==     in use at exit: 0 bytes in 0 blocks
+==6588==   total heap usage: 16 allocs, 20 frees, 10,408 bytes allocated
+==6588== 
+==6588== All heap blocks were freed -- no leaks are possible
+==6588== 
+==6588== For lists of detected and suppressed errors, rerun with: -s
+==6588== ERROR SUMMARY: 154 errors from 97 contexts (suppressed: 0 from 0)
