@@ -37,4 +37,7 @@ void Node__free(struct node *root);
 
 void Tree__insert(struct node *root, struct body *body);
 
+void Tree__calculate_force(struct node *root, struct body *body, double theta,double *force, double G);
+
+
 #endif
