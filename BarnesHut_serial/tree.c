@@ -1,7 +1,6 @@
 #include "tree.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <malloc.h>
 #include <math.h>
 
 // build the Barnes-Hut tree
@@ -15,6 +14,7 @@ void init_node(struct node *node)
     node->minY = 0;
     node->maxX = 0;
     node->maxY = 0;
+    node->body = NULL;
     node->ne = NULL;
     node->se = NULL;
     node->nw = NULL;
@@ -24,10 +24,16 @@ void init_node(struct node *node)
 
 void print_tree(struct node *root)
 {
-    if(!root){return;}
-    
-    
-    
+    if(!root){
+        return;
+        }
+    if(!root->nw && !root->sw && !root->ne && !root->se){
+        printf("Node %p, Body: %p\n\n",root,root->body);
+        return;
+    }
+
+    printf("Node: %p , Total Mass: %f, Center of Mass : (%f,%f) \n",root,root->mass,root->com[0],root->com[1]);
+    printf("Children : %p, %p, %p, %p\n",root->ne,root->se,root->nw,root->sw);
     print_tree(root->ne);
     print_tree(root->se);
     print_tree(root->nw);
@@ -43,14 +49,15 @@ void Tree__free(struct node* root){
     Tree__free(root->nw);
     Tree__free(root->sw);
     if(root->body != NULL){
+        // TODO: fix the entire mem free...
         root->body = NULL;
+        //free(root->body);
     }
     free(root);
 }
 
 
 void Tree__insert(struct node *root,struct body *body){
-
     // if node x does not contain a body, put the new body b here
     if(!root->body && !root->ne && !root->se && !root->nw && !root->sw){
         
@@ -65,48 +72,32 @@ void Tree__insert(struct node *root,struct body *body){
     // if node x is an internal node:
     if (!root->body && root->ne != NULL && root->se !=NULL && root->nw != NULL && root->sw != NULL)
     {
-        /*
-        // TODO: resetting mass on inserting breaks it into loop
-        // save temporary data to update the current node
-        double oldcomX = root->com[0];
-        double oldcomY = root->com[1];
+        // update center of mass
         double oldmass = root->mass;
-        // update the center-of-mass and total mass of x
         root->mass += body->mass;
-        root->com[0] = ( oldcomX * oldmass + body->pos[0]*body->mass) / root->mass;
-        root->com[1] = (oldcomY * oldmass + body->pos[1] * body->mass) / root->mass;
-        */
-        root->mass += body->mass;
-        root->com[0] = (root->com[0] * root->mass + body->pos[0] * body->mass) / root->mass;
-        root->com[1] = (root->com[1] * root->mass + body->pos[1] * body->mass) / root->mass;
-
-
+        root->com[0] = (root->com[0] * oldmass + body->pos[0] * body->mass) / root->mass;
+        root->com[1] = (root->com[1] * oldmass + body->pos[1] * body->mass) / root->mass;
         // update min and max coordinates
         root->minX = fmin(root->minX,body->pos[0]);
         root->minY = fmin(root->minY,body->pos[1]);
         root->maxX = fmax(root->maxX,body->pos[0]);
         root->maxY = fmax(root->maxY,body->pos[1]);
 
-
         // recursively insert the body b in the appropriate quadrant
         if (body->pos[0] >= root->com[0] && body->pos[1] >= root->com[1])
         {
-            
             Tree__insert(root->ne,body);
         }
         else if (body->pos[0] >= root->com[0] && body->pos[1] < root->com[1])
-        {
-            
+        {               
             Tree__insert(root->se,body);
         }
         else if (body->pos[0] < root->com[0] && body->pos[1] >= root->com[1])
         {
-            
             Tree__insert(root->nw,body);
         }
         else if (body->pos[0] < root->com[0] && body->pos[1] < root->com[1])
-        {
-            
+        {      
             Tree__insert(root->sw,body);
         }
         return;
@@ -115,34 +106,75 @@ void Tree__insert(struct node *root,struct body *body){
     // if node x is an external node (containing a body named c):
     if (root->body != NULL && !root->nw && !root->sw && !root->ne && !root->se)
     {
-        // calculate min and max coordinates of the region
-
         // subdivide the region further, creating 4 children
         // initialize center of mass of the node
-        
-        root->mass = root->body->mass + body->mass;
-        root->com[0] = (root->body->pos[0] * root->body->mass + body->pos[0] * body->mass) / root->mass;
-        root->com[1] = (root->body->pos[1] * root->body->mass + body->pos[1] * body->mass) / root->mass;
+        // TODO: check for node initialization, memory can be dirty when mallocing stuff...__init_node__
         root->ne = NULL;
-        root->ne = (struct node*)malloc(sizeof(struct node));
-          
+        root->ne = (struct node*)calloc(1,sizeof(struct node));
+        init_node(root->ne);
         root->se = NULL;    
-        root->se = (struct node*)malloc(sizeof(struct node));
-        
+        root->se = (struct node*)calloc(1,sizeof(struct node));
+        init_node(root->se);
         root->nw = NULL;
-        root->nw = (struct node*)malloc(sizeof(struct node));
-        
+        root->nw = (struct node*)calloc(1,sizeof(struct node));
+        init_node(root->nw);
         root->sw = NULL;
-        root->sw = (struct node*)malloc(sizeof(struct node));
-        
-        // 
+        root->sw = (struct node*)calloc(1,sizeof(struct node));
+        init_node(root->sw);
+        // seems kinda working(?) gotta check for the center of mass tho...aint even sure man
+        // set the root mass, as total mass of those two bodies
+        root->mass = body->mass + root->body->mass;
+        // take the old body to insert it later (also usefull to access the stuff without calling a double pointer :O)
         struct body *old_body = root->body;
+        // get outta here boy
         root->body = NULL;   
-        root->mass = 0;
-        // recursively insert both b and c into the appropriate quadrant
         
-        Tree__insert(root,old_body);
-        Tree__insert(root,body);
+        // proceed to calc the node center of mass
+        root->com[0] = ( (old_body->mass*old_body->pos[0]) + (body->mass*body->pos[0])  ) / root->mass;
+        root->com[1] = ((old_body->mass*old_body->pos[1]) + (body->mass*body->pos[1]) ) / root->mass;
+        root->minX = fmin(root->minX,body->pos[0]);
+        root->minY = fmin(root->minY,body->pos[1]);
+        root->maxX = fmax(root->maxX,body->pos[0]);
+        root->maxY = fmax(root->maxY,body->pos[1]);
+
+
+        // recursively insert both b and c into the appropriate quadrant
+        // TODO: this means that when it recurses,the root is actively null(?)
+        // still recursing
+        if (old_body->pos[0] >= root->com[0] && old_body->pos[1] >= root->com[1])
+        {
+            Tree__insert(root->ne,old_body);
+        }
+        else if(old_body->pos[0] >= root->com[0] && old_body->pos[1] < root->com[1])
+        {
+            Tree__insert(root->se,old_body);
+
+        }
+        else if(old_body->pos[0] < root->com[0] && old_body->pos[1] >= root->com[1])
+        {
+            Tree__insert(root->nw,old_body);
+        }
+        else if (old_body->pos[0] < root->com[0] && old_body->pos[1] < root->com[1]){
+            Tree__insert(root->sw,old_body);
+        }
+
+        if(body->pos[0] >= root->com[0] && body->pos[1] >= root->com[1])
+        {
+            Tree__insert(root->ne,body);
+        }
+        else if(body->pos[0] >= root->com[0] && body->pos[1] < root->com[1])
+        {
+            Tree__insert(root->se,body);
+        }
+        else if(body->pos[0] < root->com[0] && body->pos[1] >= root->com[1])
+        {
+            Tree__insert(root->nw,body);
+        }
+        else if(body->pos[0] < root->com[1] && body->pos[1] < root->com[1])
+        {
+            Tree__insert(root->sw,body);
+        }
+
         return;
     }
 
@@ -166,13 +198,25 @@ void Tree__calculate_force(struct node *root, struct body *body, double theta,do
 
     // if the current node is an internal node
     // calculate the ratio s/d
-    double s = root->maxX - root->minX;
+    // TODO: SOMEHOW NOT CALCING RIGHT
+
+    double sX = root->maxX - root->minX;
+    double sY = root->maxY - root->minX;
+    // not another way to get the absolute
+    if (sX < 0 ){
+        sX*=-1;
+    }
+    if(sY<0){
+        sY*=-1;
+    }
+    double s = fmax(sX,sY);
     double distanceX = root->com[0] - body->pos[0];
     double distanceY = root->com[1] - body->pos[1];
     double d = sqrt(distanceX * distanceX + distanceY * distanceY);
-    double s_d = abs(s/d);
-
+    double s_d = s/d;
     // if s/d is less than theta, treat the internal node as a single body, and calculate the force it exerts on body b
+    // TODO: approssimando perdo l'info del corpo in questione, in particolare, sia N il corpo approssimazione di n1 ed n2
+    // se n1 compone la maggior parte di N, calcola la forza che n1 esercita su se stesso,cosa che dio porco non dovrebbe fare
     if (s_d < theta){
         // build a fake body using the node's center of mass and total mass
         struct body fake_body;

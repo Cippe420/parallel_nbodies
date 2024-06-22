@@ -5,7 +5,7 @@
 #include <string.h>
 // initialize the particles
 
-struct body* simulation__init(char *simulation_name, struct body *bodies, int *n_bodies)
+struct body *simulation__init(char *simulation_name, struct body *bodies, int *n_bodies)
 {
 
     if (strcmp(simulation_name, "triangle") == 0)
@@ -27,7 +27,7 @@ struct body* simulation__init(char *simulation_name, struct body *bodies, int *n
     return bodies;
 }
 
-struct body* triangle__init(struct body *bodies, int *n_bodies)
+struct body *triangle__init(struct body *bodies, int *n_bodies)
 {
     int n = 3;
     *n_bodies = n;
@@ -61,7 +61,7 @@ struct body* triangle__init(struct body *bodies, int *n_bodies)
     return bodies;
 }
 
-struct body* square__init(struct body *bodies, int *n_bodies)
+struct body *square__init(struct body *bodies, int *n_bodies)
 {
     int n = 5;
     *n_bodies = n;
@@ -103,23 +103,21 @@ struct body* square__init(struct body *bodies, int *n_bodies)
             bodies[i].vel[0] = 2e-4;
             bodies[i].vel[1] = 0;
         }
-        
     }
     return bodies;
 }
 
-struct body* earth_sun__init(struct body *bodies, int *n_bodies)
+struct body *earth_sun__init(struct body *bodies, int *n_bodies)
 {
-    int n=2;
-    bodies = (struct body *)malloc(n * sizeof(struct body));
-    *n_bodies=n;
+    int n = 2;
+    bodies = (struct body *)calloc(n, sizeof(struct body));
+    *n_bodies = n;
 
     for (int i = 0; i < n; i++)
     {
 
         if (i == 0)
         {
-
             bodies[i].mass = 2e30;
             bodies[i].pos[0] = 0;
             bodies[i].pos[1] = 0;

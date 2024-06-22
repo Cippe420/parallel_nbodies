@@ -111,7 +111,10 @@ struct body* square__init(struct body *bodies, int *n_bodies)
 struct body* earth_sun__init(struct body *bodies, int *n_bodies)
 {
     int n=2;
-    bodies = (struct body *)malloc(n * sizeof(struct body));
+    bodies = (struct body *)calloc(n,sizeof(struct body));
+    if (!bodies){
+        return NULL;
+    }
     *n_bodies=n;
 
     for (int i = 0; i < n; i++)
