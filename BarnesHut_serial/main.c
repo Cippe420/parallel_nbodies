@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
     struct body *bodies = NULL;
     int n_bodies = 0;
-    char simulation_name[32] = "earth_sun";
+    char simulation_name[32] = "square";
     int n_step = 100000000;
     bodies = simulation__init(simulation_name, bodies, &n_bodies);
     if (!bodies){
