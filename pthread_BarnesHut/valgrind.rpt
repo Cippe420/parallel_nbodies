@@ -1,0 +1,1324 @@
+==7933== Memcheck, a memory error detector
+==7933== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7933== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==7933== Command: ./main -t 2 -S earth_sun
+==7933== Parent PID: 2898
+==7933== 
+==7933== Thread 2:
+==7933== Invalid write of size 8
+==7933==    at 0x10AA0F: init_node (tree.c:10)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA1B: init_node (tree.c:11)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA28: init_node (tree.c:12)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a300 is 16 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA35: init_node (tree.c:13)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA42: init_node (tree.c:14)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a310 is 32 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA4F: init_node (tree.c:15)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a318 is 40 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA5C: init_node (tree.c:16)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a320 is 48 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA65: init_node (tree.c:17)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA71: init_node (tree.c:18)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA7D: init_node (tree.c:19)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA89: init_node (tree.c:20)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AA95: init_node (tree.c:21)
+==7933==    by 0x109699: calculate_subset (main.c:73)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Thread 3:
+==7933== Invalid read of size 8
+==7933==    at 0x10ACC5: Tree__insert (tree.c:65)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10ACD6: Tree__insert (tree.c:65)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10ACE7: Tree__insert (tree.c:65)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10ACF4: Tree__insert (tree.c:65)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AD01: Tree__insert (tree.c:65)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AD17: Tree__insert (tree.c:67)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AD29: Tree__insert (tree.c:68)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a310 is 32 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AD3B: Tree__insert (tree.c:69)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a318 is 40 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AD4D: Tree__insert (tree.c:70)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a320 is 48 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10AD5A: Tree__insert (tree.c:71)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Thread 2:
+==7933== Invalid read of size 8
+==7933==    at 0x10AD67: Tree__insert (tree.c:76)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B050: Tree__insert (tree.c:110)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B061: Tree__insert (tree.c:110)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B072: Tree__insert (tree.c:110)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B083: Tree__insert (tree.c:110)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B094: Tree__insert (tree.c:110)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B0A5: Tree__insert (tree.c:115)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B0C3: Tree__insert (tree.c:116)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B0CB: Tree__insert (tree.c:117)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B0DB: Tree__insert (tree.c:118)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B0F9: Tree__insert (tree.c:119)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B101: Tree__insert (tree.c:120)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B111: Tree__insert (tree.c:121)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B12F: Tree__insert (tree.c:122)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B137: Tree__insert (tree.c:123)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B147: Tree__insert (tree.c:124)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B165: Tree__insert (tree.c:125)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B16D: Tree__insert (tree.c:126)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B185: Tree__insert (tree.c:129)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B195: Tree__insert (tree.c:129)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a300 is 16 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B19E: Tree__insert (tree.c:131)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B1AA: Tree__insert (tree.c:133)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B1E4: Tree__insert (tree.c:136)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a300 is 16 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B1F1: Tree__insert (tree.c:136)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B227: Tree__insert (tree.c:137)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a300 is 16 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B234: Tree__insert (tree.c:137)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B246: Tree__insert (tree.c:138)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B261: Tree__insert (tree.c:138)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B272: Tree__insert (tree.c:139)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a310 is 32 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B28D: Tree__insert (tree.c:139)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a310 is 32 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B29E: Tree__insert (tree.c:140)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a318 is 40 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B2B9: Tree__insert (tree.c:140)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a318 is 40 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B2CA: Tree__insert (tree.c:141)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a320 is 48 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid write of size 8
+==7933==    at 0x10B2E5: Tree__insert (tree.c:141)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a320 is 48 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B2F6: Tree__insert (tree.c:146)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B341: Tree__insert (tree.c:150)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B38C: Tree__insert (tree.c:154)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B3A3: Tree__insert (tree.c:154)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B3B2: Tree__insert (tree.c:156)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B41A: Tree__insert (tree.c:163)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B431: Tree__insert (tree.c:163)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B465: Tree__insert (tree.c:167)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B47C: Tree__insert (tree.c:167)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B48B: Tree__insert (tree.c:169)
+==7933==    by 0x1096EC: calculate_subset (main.c:83)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B57C: Tree__calculate_force (tree.c:189)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B623: Tree__calculate_force (tree.c:206)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a318 is 40 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B62C: Tree__calculate_force (tree.c:206)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B63E: Tree__calculate_force (tree.c:207)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a320 is 48 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B647: Tree__calculate_force (tree.c:207)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a308 is 24 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B6BB: Tree__calculate_force (tree.c:218)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B6D5: Tree__calculate_force (tree.c:219)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f8 is 8 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B7AE: Tree__calculate_force (tree.c:238)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B7BB: Tree__calculate_force (tree.c:240)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B7F1: Tree__calculate_force (tree.c:242)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B7FE: Tree__calculate_force (tree.c:244)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B834: Tree__calculate_force (tree.c:246)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B841: Tree__calculate_force (tree.c:248)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B877: Tree__calculate_force (tree.c:250)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10B884: Tree__calculate_force (tree.c:252)
+==7933==    by 0x10977A: calculate_subset (main.c:95)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AC47: Tree__free (tree.c:51)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a330 is 64 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AC57: Tree__free (tree.c:52)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a338 is 72 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AC67: Tree__free (tree.c:53)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a340 is 80 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AC77: Tree__free (tree.c:54)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a348 is 88 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid read of size 8
+==7933==    at 0x10AC87: Tree__free (tree.c:55)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a328 is 56 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== Invalid free() / delete / delete[] / realloc()
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Address 0x4b8a2f0 is 0 bytes inside a block of size 96 free'd
+==7933==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x10ACA7: Tree__free (tree.c:59)
+==7933==    by 0x1099A7: calculate_subset (main.c:108)
+==7933==    by 0x49F3AC2: start_thread (pthread_create.c:442)
+==7933==    by 0x4A84A03: clone (clone.S:100)
+==7933==  Block was alloc'd at
+==7933==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7933==    by 0x109CF5: main (main.c:183)
+==7933== 
+==7933== 
+==7933== HEAP SUMMARY:
+==7933==     in use at exit: 0 bytes in 0 blocks
+==7933==   total heap usage: 15 allocs, 16 frees, 6,528 bytes allocated
+==7933== 
+==7933== All heap blocks were freed -- no leaks are possible
+==7933== 
+==7933== For lists of detected and suppressed errors, rerun with: -s
+==7933== ERROR SUMMARY: 103 errors from 87 contexts (suppressed: 0 from 0)
