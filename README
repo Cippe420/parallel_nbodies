@@ -1,1 +1,41 @@
-hello world
+# Introduzione
+
+N-Body simulator è un programma in C per simulare il problema degli n-corpi, che si prepone l'obiettivo 
+di illustrare l'andamento di corpi (corpi celesti nel nostro caso) che sono soggetti alla forza di gravitazione
+universale.
+
+Vengono quindi presentate diverse simulazioni, due seriali usando sia l'algoritmo brute force che quello di 
+Barnes-Hut, e 2 implementazioni parallele degli stessi, usando le librerie MPI e Pthread.
+
+Ho quindi aggiunto un renderer per illustrare l'esito delle simulazioni.
+
+
+
+# Come avviare le simulazioni
+
+Il progetto è sviluppato su Linux, quindi non assicuro il funzionamento su altre piattaforme visto l'utilizzo
+di librerie multi-thread.
+
+Per compilare è necessario inserirsi nella directory specifica dell'implementazione che si vuole testare.
+In seguito è sufficiente eseguire il comando:
+
+```
+make all
+```
+
+Dopo aver compilato il programma è necessario passare un paio di argomenti:
+
+- "-S" : il nome della simulazione (si veda dopo)
+- "-t" : il numero di istanti temporali per cui si vuole simulare
+
+Per semplicità di esecuzione sono fornite alcune simulazioni "note". La mia simulazione di riferimento è
+quella del sistema Sole-Terra, osservata per un numero di istanti t pari a 10,000,000. Con questi argomenti
+viene prodotta una clip di 9 secondi.
+
+Altre simulazioni note che possono essere osservate sono "square"
+
+
+
+# Funzionamento
+
+L'implementazione del programma è relativamente semplice. Viene adottata la stessa strategia per ogni algoritmo.
