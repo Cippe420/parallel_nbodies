@@ -4,10 +4,28 @@
 #include <getopt.h>
 #include <mpi.h>
 #include "particles.h"
+#include "timer.h"
 
 #define G 6.67259e-11
 #define FILENAME "data.csv"
 #define DELTA_T 0.1
+#define TIMERFILE "mpi-parallel-times.csv"
+
+void print_times(double time,int steps,int bodies)
+{
+    FILE *fp;
+
+    fp = fopen(TIMERFILE, "a");
+    printf("aperto file\n");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
+    fclose(fp);
+}
 
 void print_sim(struct body bodies[], int n_bodies)
 {
@@ -32,16 +50,14 @@ int main(int argc, char **argv)
     int n_step = 10000;
     int n_bodies = 0;
     char simulation_name[32] = "default";
-    int width,height;
-    char *saveptr;
-    fopen(FILENAME,"w");
+    double start_t,finish,elapsed;
 
     MPI_Init(&argc, &argv);
     int rank, size;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    while ((opt = getopt(argc, argv, "t:n:S:C:")) != -1)
+    while ((opt = getopt(argc, argv, "t:n:S:")) != -1)
     {
         switch (opt)
         {
@@ -54,14 +70,6 @@ int main(int argc, char **argv)
         case 'S':
             strcpy(simulation_name, optarg);
             break;
-        case 'C':
-            width = atoi(strtok_r(optarg, "-",&saveptr));
-            height = atoi(strtok_r(NULL, "-",&saveptr)); 
-            if (!(width && height)){
-                fprintf(stderr,"è necessario inserire altezza e larghezza"); 
-                return -1;
-            }
-            break;
         case '?':
             if (rank == 0)
             {
@@ -72,17 +80,23 @@ int main(int argc, char **argv)
         }
     }
 
+    GET_TIME(start_t);
+
     struct body *bodies = NULL;
 
     if (rank == 0)
     {
-        bodies = simulation__init(simulation_name, bodies, &n_bodies,width,height);
+        bodies = simulation__init(simulation_name, bodies, &n_bodies);
         if (bodies == NULL || n_bodies == 0)
         {
             printf("Error initializing simulation\n");
             MPI_Finalize();
             exit(1);
         }
+
+        FILE *fp;
+        fp = fopen(FILENAME, "w");
+        fclose(fp);
     }
 
     // Broadcast number of bodies to all processes
@@ -123,13 +137,21 @@ int main(int argc, char **argv)
         // Gather all updated bodies from all processes
         MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, bodies, bodies_per_proc * sizeof(struct body), MPI_BYTE, MPI_COMM_WORLD);
 
-        if (t % 10000 == 0)
+        if (t % 1000000 == 0)
         {
             if (rank == 0)
                 print_sim(bodies, n_bodies);
         }
     }
 
+    GET_TIME(finish);
+
+    elapsed = finish-start_t;
+
+    if(rank==0)
+    {
+        print_times(elapsed,n_step,n_bodies);
+    }
     free(bodies);
     MPI_Finalize();
     return 0;

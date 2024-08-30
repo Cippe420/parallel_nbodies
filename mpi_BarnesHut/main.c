@@ -5,11 +5,13 @@
 #include <getopt.h>
 #include <mpi.h>
 #include "tree.h"
+#include "timer.h"
 
 #define THETA 0.5
 #define G 6.674e-11
 #define DELTA_T 0.1
 #define FILENAME "data.csv"
+#define TIMERFILE "mpi-bh-times.csv"
 
 void print_sim(struct body bodies[], int n_bodies)
 {
@@ -29,6 +31,22 @@ void print_sim(struct body bodies[], int n_bodies)
     fclose(fp);
 }
 
+void print_times(double time,int steps,int bodies)
+{
+    FILE *fp;
+
+    fp = fopen(TIMERFILE, "a");
+    printf("aperto file\n");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
+    fclose(fp);
+}
+
 int main(int argc, char **argv)
 {
     int rank, size;
@@ -41,6 +59,7 @@ int main(int argc, char **argv)
     int n_bodies = 0;
     char simulation_name[32] = "default";
     int n_step = 10000;
+    double start_t,finish,elapsed;
 
     while ((opt = getopt(argc, argv, "t:n:S:")) != -1)
     {
@@ -61,6 +80,8 @@ int main(int argc, char **argv)
             exit(1);
         }
     }
+
+    GET_TIME(start_t);
 
     if (rank == 0)
     {
@@ -127,7 +148,7 @@ int main(int argc, char **argv)
 
         if (rank == 0)
         {
-            if (t % 1000000 == 0)
+            if (t % 1000 == 0)
             {
                 print_sim(bodies, n_bodies);
                 printf("%.2f%%\r", ((float)t / n_step) * 100);
@@ -136,6 +157,14 @@ int main(int argc, char **argv)
         }
 
         Tree__free(root);
+    }
+
+    GET_TIME(finish);
+
+    elapsed = finish-start_t;
+    if(rank==0)
+    {
+        print_times(elapsed,n_step,n_bodies);
     }
 
     free(bodies);

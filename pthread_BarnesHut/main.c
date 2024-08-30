@@ -5,12 +5,14 @@
 #include <math.h>
 #include <pthread.h>
 #include <getopt.h>
+#include "timer.h"
 #include <pthread.h>
 #define THETA 0.5
 #define G 6.674e-11
 #define DELTA_T 0.1
 #define FILENAME "data.csv"
-#define NUM_THREADS 2
+#define NUM_THREADS 8
+#define TIMERFILE "pthread-bh-times.csv"
 
 // needing barrier to coordinate threads on operations
 pthread_barrier_t barrier;
@@ -54,6 +56,22 @@ void print_sim(struct body bodies[], int n_bodies)
     fclose(fp);
 }
 
+void print_times(double time,int steps,int bodies)
+{
+    FILE *fp;
+
+    fp = fopen(TIMERFILE, "a");
+    printf("aperto file\n");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
+    fclose(fp);
+}
+
 // thread routine
 void *calculate_subset(void *threaddata)
 {
@@ -65,6 +83,9 @@ void *calculate_subset(void *threaddata)
     int n_bodies = data->n_bodies;
     int n_step = data->n_step;
     int tid = data->tid;
+    double start_t,finish,elapsed;
+
+    GET_TIME(start_t);
     for (int t = 0; t < n_step; t++)
     {
         struct node *root = (struct node *)calloc(1,sizeof(struct node));
@@ -75,9 +96,7 @@ void *calculate_subset(void *threaddata)
         {
             Tree__insert(root, &bodies[i]);
         }
-        // wait on barrier
-        pthread_barrier_wait(&barrier);
-
+        
         // calculate force for bodies set
         for (int i = start; i < end; i++)
         {
@@ -89,10 +108,6 @@ void *calculate_subset(void *threaddata)
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
             bodies[i].pos[1] += bodies[i].vel[1] * DELTA_T;
         }
-
-        // wait on barrier
-        pthread_barrier_wait(&barrier);
-
         // delete tree (all except root possibly)
         if (tid == 0)
         {
@@ -109,6 +124,15 @@ void *calculate_subset(void *threaddata)
         pthread_barrier_wait(&barrier);
 
     }
+
+    GET_TIME(finish);
+    elapsed= finish-start_t;
+
+    if(tid==0)
+    {
+        print_times(elapsed,n_step,n_bodies);
+    }
+
     return NULL;
 }
 

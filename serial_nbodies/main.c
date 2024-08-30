@@ -6,6 +6,8 @@
 #define G 6.67259e-11
 #define FILENAME "data.csv"
 #define DELTA_T 0.1
+#define TIMERFILE "serial-nbodies-times.csv"
+#include "timer.h"
 
 void print_sim(struct body bodies[], int n_bodies)
 {
@@ -25,14 +27,31 @@ void print_sim(struct body bodies[], int n_bodies)
     fclose(fp);
 }
 
+void print_times(double time,int steps,int n_bodies)
+{
+    FILE *fp;
+
+    fp = fopen(TIMERFILE, "a");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    fprintf(fp,"[t=%d,n=%d] elapsed time : %f\n",steps,n_bodies,time);
+    fclose(fp);
+}
+
+
 int main(int argc, char **argv)
 {
     int opt;
     int n_step = 10000;
     int n_bodies = 0;
     char simulation_name[32]="default";
+    double start,finish,elapsed;
 
-    while((opt = getopt(argc, argv, "t:S:")) != -1){
+    while((opt = getopt(argc, argv, "t:S:n:")) != -1){
         switch(opt){
             case 't':
                 n_step = atoi(optarg);
@@ -51,6 +70,8 @@ int main(int argc, char **argv)
     }
 
     struct body *bodies=NULL;
+
+    GET_TIME(start);
 
     bodies=simulation__init(simulation_name, bodies, &n_bodies);
     if (bodies == NULL || n_bodies == 0)
@@ -92,6 +113,13 @@ int main(int argc, char **argv)
             print_sim(bodies, n_bodies);
         }
     }
+
+    GET_TIME(finish);
+
+    elapsed = finish-start;
+
+    print_times(elapsed,n_step,n_bodies);
+
     free(bodies);
     return 0;
 }

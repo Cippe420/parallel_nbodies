@@ -20,6 +20,10 @@ struct body* simulation__init(char *simulation_name, struct body *bodies, int *n
     {
         bodies = earth_sun__init(bodies, n_bodies);
     }
+    else if (strcmp(simulation_name, "random") == 0)
+    {
+        bodies = random_init(bodies, n_bodies);
+    }
     else
     {
         printf("Invalid simulation name\n");
@@ -67,6 +71,20 @@ struct body* triangle__init(struct body *bodies, int *n_bodies)
     }
     return bodies;
 }
+struct body *random_init(struct body *bodies,int *n_bodies){
+    bodies = (struct body *)malloc(*n_bodies * sizeof(struct body));
+    int n = *n_bodies;
+    for(int i = 0;i < n; i++)
+    {
+        // yup, i just did that,devious
+        bodies[i].mass = i+1;
+        bodies[i].pos[0] = i;
+        bodies[i].pos[1] = i;
+    }
+
+    return bodies;
+}
+
 
 struct body* square__init(struct body *bodies, int *n_bodies)
 {

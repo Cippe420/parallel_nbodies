@@ -16,6 +16,8 @@ struct body* earth_sun__init(struct body *bodies, int *n_bodies);
 struct body* square__init(struct body *bodies, int *n_bodies);
 // use case triangle test
 struct body* triangle__init(struct body *bodies, int *n_bodies);
+// use case random test
+struct body* random_init(struct body *bodies, int *n_bodies);
 // compute the force between two particles
 void compute_force(const struct body body1,const struct body body2,double G,double force[]);
 // compute the acceleration of a particle

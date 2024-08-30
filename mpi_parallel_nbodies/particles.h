@@ -9,7 +9,7 @@ struct body
 };
 
 // initialize the simulation
-struct body* simulation__init(char *simulation_name, struct body *bodies, int *n_bodies,int width,int height);
+struct body* simulation__init(char *simulation_name, struct body *bodies, int *n_bodies);
 // use case triangle test
 struct body* earth_sun__init(struct body *bodies, int *n_bodies);
 // use case square test
@@ -17,7 +17,7 @@ struct body* square__init(struct body *bodies, int *n_bodies);
 // use case triangle test
 struct body* triangle__init(struct body *bodies, int *n_bodies);
 
-struct body* random_init(struct body*bodies, int *n_bodies, int width, int height);
+struct body* random_init(struct body*bodies, int *n_bodies);
 // compute the force between two particles
 void compute_force(const struct body body1,const struct body body2,double G,double force[]);
 // compute the acceleration of a particle

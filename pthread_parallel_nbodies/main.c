@@ -4,10 +4,12 @@
 #include "particles.h"
 #include <getopt.h>
 #include <string.h>
+#include "timer.h"
 
-#define NUM_THREADS 2
+#define NUM_THREADS 8
 #define G 6.67259e-11
 #define FILENAME "data.csv"
+#define TIMERFILE "pthread-parallel-times.csv"
 #define DELTA_T 0.1
 
 pthread_barrier_t barrier; //barriera condivisa per sincronizzare i thread
@@ -40,10 +42,27 @@ void print_sim(struct body bodies[], int n_bodies)
     fclose(fp);
 }
 
+void print_times(double time,int steps,int bodies)
+{
+    FILE *fp;
+
+    fp = fopen(TIMERFILE, "a");
+    printf("aperto file\n");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
+    fclose(fp);
+}
+
 // the function to be executed as a thread
 void *calculate_subset(void *arg)
 {
-
+    // profiling the thread function
+    double start_t,finish,elapsed;
     struct thread_data *data = (struct thread_data*) arg;
     struct body *bodies = data->bodies;
     int start = data->start;
@@ -51,6 +70,9 @@ void *calculate_subset(void *arg)
     int n_bodies = data->n_bodies;
     int n_step = data->n_step;
     int tid = data->tid;
+
+    GET_TIME(start_t);
+
 
     for (int t = 0; t < n_step;t++)
     {
@@ -93,6 +115,14 @@ void *calculate_subset(void *arg)
 
     }
 
+    GET_TIME(finish);
+
+    elapsed = finish-start_t;
+
+    if (tid == 0)
+    {
+        print_times(elapsed,n_step,n_bodies);
+    }
     
     return NULL;
 }
