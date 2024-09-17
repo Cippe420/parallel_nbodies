@@ -73,70 +73,45 @@ void *calculate_subset(void *arg)
 
     GET_TIME(start_t);
 
-    // use a tmp array to avoid locking
-    struct body temparray[end-start];
-
-    // initialize the temparray
-
-    for ( int i = start; i<end;i++)
-    {
-        temparray[i].mass= bodies[i].mass;
-        temparray[i].pos[0] = bodies[i].pos[0];
-        temparray[i].pos[1] = bodies[i].pos[1];
-        temparray[i].vel[0] = bodies[i].vel[0];
-        temparray[i].vel[1] = bodies[i].vel[1];
-    }
 
     for (int t = 0; t < n_step;t++)
     {
-
         for (int i = start ; i<end ; i++)
         
         {
 
             double force[2] = {0,0};
 
-
             for (int j =0; j<n_bodies;j++)
             {
                 if (i!=j)
                 {
-
-                    // compute force and acceleration between the bodies
+                    // acquisisce lock in lettura su j  
+                    pthread_rwlock_rdlock(&bodies[j].lock);
                     compute_force(bodies[i],bodies[j],G,force);
                     double acc[2] = {0, 0};
                     compute_acceleration(bodies[i], force, acc);
-                    
-                    // write it into the temparray
-                    temparray[i].vel[0] += acc[0]*DELTA_T;
-                    temparray[i].vel[1] += acc[1]*DELTA_T;
-                    temparray[i].pos[0] += temparray[i].vel[0]*DELTA_T;
-                    temparray[i].pos[1] += temparray[i].vel[1]*DELTA_T;
+                    pthread_rwlock_unlock(&bodies[j].lock);
 
+                    // locks
+                    pthread_rwlock_wrlock(&bodies[i].lock);
+                    bodies[i].vel[0] += acc[0]*DELTA_T;
+                    bodies[i].vel[1] += acc[1]*DELTA_T;
+                    bodies[i].pos[0] += bodies[i].vel[0]*DELTA_T;
+                    bodies[i].pos[1] += bodies[i].vel[1]*DELTA_T;
+                    // unlocks
+                    pthread_rwlock_unlock(&bodies[i].lock);
                 }
 
             }
 
-            // barrier
         }
-
-        
 
         if (tid ==0 && t % 1000000 == 0){
             print_sim(bodies,n_bodies);
         }
 
         pthread_barrier_wait(&barrier);
-
-        for(int i = start; i<end; i++)
-        {
-            // update the values onto the original array
-            bodies[i].vel[0] = temparray[i].vel[0];
-            bodies[i].vel[1] = temparray[i].vel[1];
-            bodies[i].pos[0] = temparray[i].pos[0];
-            bodies[i].pos[1] = temparray[i].pos[1];
-
-        }
 
     }
 
@@ -231,8 +206,6 @@ int main(int argc, char **argv)
     }
     
     pthread_barrier_destroy(&barrier);
-
-
 
     free(bodies);
     return 0;
