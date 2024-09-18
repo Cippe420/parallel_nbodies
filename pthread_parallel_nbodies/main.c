@@ -21,7 +21,6 @@ struct thread_data {
     int end;
     int n_bodies;
     int n_step;
-    FILE *fp;
 };
 
 void print_sim(struct body bodies[], int n_bodies)
@@ -62,7 +61,6 @@ void print_times(double time,int steps,int bodies)
 void *calculate_subset(void *arg)
 {
     // profiling the thread function
-    double start_t,finish,elapsed;
     struct thread_data *data = (struct thread_data*) arg;
     struct body *bodies = data->bodies;
     int start = data->start;
@@ -71,26 +69,17 @@ void *calculate_subset(void *arg)
     int n_step = data->n_step;
     int tid = data->tid;
 
-    GET_TIME(start_t);
-
     // use a tmp array to avoid locking
     struct body temparray[end-start];
 
-    // initialize the temparray
+    
+    memcpy(temparray,&bodies[start],(end-start)*sizeof(struct body));
 
-    for ( int i = start; i<end;i++)
-    {
-        temparray[i].mass= bodies[i].mass;
-        temparray[i].pos[0] = bodies[i].pos[0];
-        temparray[i].pos[1] = bodies[i].pos[1];
-        temparray[i].vel[0] = bodies[i].vel[0];
-        temparray[i].vel[1] = bodies[i].vel[1];
-    }
 
-    for (int t = 0; t < n_step;t++)
+    for (unsigned long long t = 0; t < n_step;t++)
     {
 
-        for (int i = start ; i<end ; i++)
+        for (unsigned long long i = start ; i<end ; i++)
         
         {
 
@@ -108,10 +97,10 @@ void *calculate_subset(void *arg)
                     compute_acceleration(bodies[i], force, acc);
                     
                     // write it into the temparray
-                    temparray[i].vel[0] += acc[0]*DELTA_T;
-                    temparray[i].vel[1] += acc[1]*DELTA_T;
-                    temparray[i].pos[0] += temparray[i].vel[0]*DELTA_T;
-                    temparray[i].pos[1] += temparray[i].vel[1]*DELTA_T;
+                    temparray[i-start].vel[0] += acc[0]*DELTA_T;
+                    temparray[i-start].vel[1] += acc[1]*DELTA_T;
+                    temparray[i-start].pos[0] += temparray[i-start].vel[0]*DELTA_T;
+                    temparray[i-start].pos[1] += temparray[i-start].vel[1]*DELTA_T;
 
                 }
 
@@ -131,22 +120,13 @@ void *calculate_subset(void *arg)
         for(int i = start; i<end; i++)
         {
             // update the values onto the original array
-            bodies[i].vel[0] = temparray[i].vel[0];
-            bodies[i].vel[1] = temparray[i].vel[1];
-            bodies[i].pos[0] = temparray[i].pos[0];
-            bodies[i].pos[1] = temparray[i].pos[1];
+            bodies[i].vel[0] = temparray[i-start].vel[0];
+            bodies[i].vel[1] = temparray[i-start].vel[1];
+            bodies[i].pos[0] = temparray[i-start].pos[0];
+            bodies[i].pos[1] = temparray[i-start].pos[1];
 
         }
 
-    }
-
-    GET_TIME(finish);
-
-    elapsed = finish-start_t;
-
-    if (tid == 0)
-    {
-        print_times(elapsed,n_step,n_bodies);
     }
     
     return NULL;
@@ -164,6 +144,7 @@ int main(int argc, char **argv)
     int width,height;
     char *saveptr;
     char simulation_name[32]="earth_sun";
+    double start_t,finish,elapsed;
 
     while ((opt = getopt(argc, argv, "t:n:S:C:")) != -1)
     {
@@ -218,8 +199,10 @@ int main(int argc, char **argv)
         thread_data_array[i].end = (i == NUM_THREADS - 1) ? n_bodies : (i + 1) * bodies_per_thread;
         thread_data_array[i].n_bodies = n_bodies;
         thread_data_array[i].n_step = n_step;
-        thread_data_array[i].fp = fp;
     }
+
+    GET_TIME(start_t);
+
     for (int i = 0; i < NUM_THREADS; i++)
     {
         pthread_create(&threads[i], NULL, calculate_subset, (void *)&thread_data_array[i]);
@@ -229,9 +212,13 @@ int main(int argc, char **argv)
     {
         pthread_join(threads[i], NULL);
     }
+
+    GET_TIME(finish);
+
+    elapsed = finish - start_t;
+    print_times(elapsed,n_step,n_bodies);
     
     pthread_barrier_destroy(&barrier);
-
 
 
     free(bodies);

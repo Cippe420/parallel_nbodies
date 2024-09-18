@@ -11,12 +11,11 @@
 #define G 6.674e-11
 #define DELTA_T 0.1
 #define FILENAME "data.csv"
-#define NUM_THREADS 8
+#define NUM_THREADS 4
 #define TIMERFILE "pthread-bh-times.csv"
 
 // needing barrier to coordinate threads on operations
 pthread_barrier_t barrier;
-pthread_rwlock_t lock;
 
 struct thread_data
 {
@@ -83,9 +82,7 @@ void *calculate_subset(void *threaddata)
     int n_bodies = data->n_bodies;
     int n_step = data->n_step;
     int tid = data->tid;
-    double start_t,finish,elapsed;
 
-    GET_TIME(start_t);
     for (int t = 0; t < n_step; t++)
     {
         struct node *root = (struct node *)calloc(1,sizeof(struct node));
@@ -94,7 +91,7 @@ void *calculate_subset(void *threaddata)
 
         for (int i = 0; i < n_bodies; i++)
         {
-            Tree__insert(root, &bodies[i]);
+            insert__Tree(root, &bodies[i]);
         }
         
         // calculate force for bodies set
@@ -102,7 +99,7 @@ void *calculate_subset(void *threaddata)
         {
             // no need for a lock cause they are reading force from the tree
             double force[2] = {0, 0};
-            Tree__calculate_force(root, &bodies[i], THETA, force, G);
+            Tree__calculate_force(root, &bodies[i], THETA, G,force);
             bodies[i].vel[0] += (force[0] / bodies[i].mass) * DELTA_T;
             bodies[i].vel[1] += (force[1] / bodies[i].mass) * DELTA_T;
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
@@ -117,20 +114,12 @@ void *calculate_subset(void *threaddata)
         // print into the csv
         if (tid == 0 && t % 1000000 == 0)
         {
-            print_sim(bodies, n_bodies);
+            //print_sim(bodies, n_bodies);
         }
 
         // wait on barrier
         pthread_barrier_wait(&barrier);
 
-    }
-
-    GET_TIME(finish);
-    elapsed= finish-start_t;
-
-    if(tid==0)
-    {
-        print_times(elapsed,n_step,n_bodies);
     }
 
     return NULL;
@@ -148,6 +137,7 @@ int main(int argc, char **argv)
     int width, height;
     char *saveptr;
     char simulation_name[32] = "earth_sun";
+    double starTime,finishTime,elapsed;
 
     while ((opt = getopt(argc, argv, "t:n:S:C:")) != -1)
     {
@@ -196,7 +186,6 @@ int main(int argc, char **argv)
     int bodies_per_thread = n_bodies / NUM_THREADS;
     pthread_barrier_init(&barrier, NULL, NUM_THREADS);
     struct node *root = (struct node *)calloc(1, sizeof(struct node));
-    pthread_rwlock_init(&lock,NULL);
     init_node(root);
 
     // fill the thread data with everything needed to start the thread routine
@@ -212,6 +201,9 @@ int main(int argc, char **argv)
         thread_data_array[i].root = root;
     }
 
+    GET_TIME(starTime);
+
+
     for (int i = 0; i < NUM_THREADS; i++)
     {
         pthread_create(&threads[i], NULL, calculate_subset, (void *)&thread_data_array[i]);
@@ -222,8 +214,13 @@ int main(int argc, char **argv)
         pthread_join(threads[i], NULL);
     }
 
+    GET_TIME(finishTime);
+
+    elapsed = finishTime - starTime;
+
+    printf("elapsed time : %f\n",elapsed);
+
     pthread_barrier_destroy(&barrier);
-    pthread_rwlock_destroy(&lock);
 
     free(bodies);
     return 0;

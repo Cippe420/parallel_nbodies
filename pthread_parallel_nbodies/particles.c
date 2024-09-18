@@ -29,12 +29,6 @@ struct body* simulation__init(char *simulation_name, struct body *bodies, int *n
         printf("Invalid simulation name\n");
     }
 
-    for (int i = 0 ; i < *n_bodies; i++){
-
-        pthread_rwlock_init(&bodies[i].lock, NULL);
-
-    }
-
     return bodies;
 }
 

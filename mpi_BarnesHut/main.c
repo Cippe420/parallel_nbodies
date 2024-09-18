@@ -123,7 +123,7 @@ int main(int argc, char **argv)
         init_node(root);
         for (int i = 0; i < n_bodies; i++)
         {
-            Tree__insert(root, &bodies[i]);
+            insert__Tree(root, &bodies[i]);
         }
 
         // Each process calculates the force acting on it's own bodies
@@ -132,7 +132,7 @@ int main(int argc, char **argv)
             // initialize forces array
             double force[2] = {0, 0};
             // calcola la forza sul tuo sotto-array di forze
-            Tree__calculate_force(root, &bodies[i], THETA, force, G);
+            Tree__calculate_force(root, &bodies[i], THETA, G,force);
 
             // update velocities and position of bodies
             bodies[i].vel[0] += (force[0] / bodies[i].mass)*DELTA_T;
@@ -150,9 +150,9 @@ int main(int argc, char **argv)
         {
             if (t % 1000 == 0)
             {
-                print_sim(bodies, n_bodies);
-                printf("%.2f%%\r", ((float)t / n_step) * 100);
-                fflush(stdout);
+                // print_sim(bodies, n_bodies);
+                // printf("%.2f%%\r", ((float)t / n_step) * 100);
+                // fflush(stdout);
             }
         }
 
@@ -169,5 +169,7 @@ int main(int argc, char **argv)
 
     free(bodies);
     MPI_Finalize();
+    printf("exec time: %f\n",elapsed);
+
     return 0;
 }

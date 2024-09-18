@@ -1,0 +1,2 @@
+Elapsed Insert Time: 6.557490
+ Elapsed Force Time: 0.011387

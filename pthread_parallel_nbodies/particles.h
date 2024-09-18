@@ -1,13 +1,10 @@
 #ifndef __PARTICLES_H__
 #define __PARTICLES_H__ 
-#include <pthread.h>
 struct body
 {    
     double mass;
     double vel[2];
     double pos[2];
-    pthread_rwlock_t lock;
-
 };
 
 // initialize the simulation
