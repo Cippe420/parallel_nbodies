@@ -166,6 +166,12 @@ void insert__Tree(struct node *root, struct body *body)
 
 void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force)
 {
+
+    // se il nodo è vuoto
+    if(!root->body && !root->ne && !root->se && !root->nw && !root->sw)
+    {
+        return;
+    }
     // sono su una foglia
     if (root->body != NULL)
     {
@@ -180,11 +186,10 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
 
     }
     else
-    {
-
-        // calcola il rapporto tra s/d
+    {  
+        
         double ratio = calculate_ratio(root, body);
-        if (ratio < theta)
+        if (ratio <= theta)
         {
             // se il rapporto è minore di theta, approssima questo nodo come fosse un corpo e calcolane la forza
             struct body fake_body;
@@ -196,26 +201,23 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
         else
         {
             // altrimenti chiama ricorsivamente su i 4 figli
-            if(!root->ne && root->ne->body != NULL)
+            if(root->ne)
             {
             Tree__calculate_force(root->ne, body, theta, G, force);
             }
-            if(!root->se && root->se->body != NULL)
+            if(root->se)
             {
             Tree__calculate_force(root->se, body, theta, G, force);
             }
-            if(!root->nw && root->nw->body != NULL)
+            if(root->nw)
             {
             Tree__calculate_force(root->nw, body, theta, G, force);
             }
-            if(!root->sw && root->sw->body != NULL)
+            if(root->sw)
             {
             Tree__calculate_force(root->sw, body, theta, G, force);
             }
         }
-
     }
 
-
-    return;
 }

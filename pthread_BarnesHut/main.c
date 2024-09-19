@@ -19,7 +19,7 @@ pthread_barrier_t barrier;
 
 struct thread_data
 {
-    // the list of bodies (carefully split, we don't want concurrence here)
+    // the list of bodies 
     struct body *bodies;
     // the root of the tree
     struct node *root;
@@ -86,8 +86,6 @@ void *calculate_subset(void *threaddata)
     for (int t = 0; t < n_step; t++)
     {
         struct node *root = (struct node *)calloc(1,sizeof(struct node));
-        // inserisco ogni corpo nell'albero
-        init_node(root);
 
         for (int i = 0; i < n_bodies; i++)
         {
@@ -105,11 +103,8 @@ void *calculate_subset(void *threaddata)
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
             bodies[i].pos[1] += bodies[i].vel[1] * DELTA_T;
         }
-        // delete tree (all except root possibly)
-        if (tid == 0)
-        {
-            Tree__free(root);
-        }
+        
+        Tree__free(root);
 
         // print into the csv
         if (tid == 0 && t % 1000000 == 0)
@@ -117,7 +112,6 @@ void *calculate_subset(void *threaddata)
             //print_sim(bodies, n_bodies);
         }
 
-        // wait on barrier
         pthread_barrier_wait(&barrier);
 
     }
@@ -218,7 +212,7 @@ int main(int argc, char **argv)
 
     elapsed = finishTime - starTime;
 
-    printf("elapsed time : %f\n",elapsed);
+    print_times(elapsed,n_step,n_bodies);
 
     pthread_barrier_destroy(&barrier);
 

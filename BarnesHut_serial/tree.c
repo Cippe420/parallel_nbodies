@@ -10,6 +10,7 @@ double calculate_ratio(struct node *node, struct body *body)
 {
     double sX = node->maxX - node->minX;
     double sY = node->maxY - node->minY;
+
     // handcraft the absolute
     if (sX < 0)
     {
@@ -42,20 +43,34 @@ void init_node(struct node *node)
     node->sw = NULL;
 }
 
-void print_tree(struct node *root)
+
+void print_node(struct node *root)
 {
     if (!root)
     {
         return;
     }
-    if (!root->nw && !root->sw && !root->ne && !root->se)
-    {
-        printf("Node %p, Body: %p\n\n", root, root->body);
-        return;
+    if (!root->nw && !root->sw && !root->ne && !root->se){
+        printf("\033[0;31m Node: %p , Total Mass: %f, Center of Mass : (%f,%f) \033[0m \n", root, root->mass, root->com[0], root->com[1]);
+        printf("\033[0;35m Children : %p, %p, %p, %p \033[0m \n", root->ne, root->se, root->nw, root->sw);
+        printf("\033[0;36m minX: %f, minY: %f,\n maxX: %f, maxY: %f \033[0m \n", root->minX, root->minY, root->maxX, root->maxY);
+        printf(" Body: %p\n\n",root->body);
     }
+    else
+    {
+        // print the parent in green
+        printf("\033[0;32m Node: %p , Total Mass: %f, Center of Mass : (%f,%f) \033[0m \n", root, root->mass, root->com[0], root->com[1]);    
+        printf("\033[0;35m Children : %p, %p, %p, %p \033[0m \n", root->ne, root->se, root->nw, root->sw);
+        printf(" Body: %p\n",root->body);        
+        printf("\033[0;36m minX: %f, minY: %f,\n maxX: %f, maxY: %f \033[0m \n\n", root->minX, root->minY, root->maxX, root->maxY);
 
-    printf("Node: %p , Total Mass: %f, Center of Mass : (%f,%f) \n", root, root->mass, root->com[0], root->com[1]);
-    printf("Children : %p, %p, %p, %p\n", root->ne, root->se, root->nw, root->sw);
+    }
+}
+
+void print_tree(struct node *root)
+{
+    if(!root){return;}
+    print_node(root);
     print_tree(root->ne);
     print_tree(root->se);
     print_tree(root->nw);
@@ -86,13 +101,15 @@ void insert__Tree(struct node *root, struct body *body)
     // if node x is a leaf, insert the body
     if (!root->ne && !root->se && !root->nw && !root->sw)
     {
+        
         // if there is no body, insert the body and return
         if (!root->body)
         {
             root->body = body;
+
+
             return;
         }
-
         // if there is a body, update the data of the node and insert both bodies in the appropriate quadrant
         struct body *old_body = root->body;
         root->body = NULL;
@@ -102,10 +119,10 @@ void insert__Tree(struct node *root, struct body *body)
 
         root->mass = 0;
 
-        root->minX = fmin(root->minX, body->pos[0]);
-        root->minY = fmin(root->minY, body->pos[1]);
-        root->maxX = fmax(root->maxX, body->pos[0]);
-        root->maxY = fmax(root->maxY, body->pos[1]);
+        root->minX = fmin(old_body->pos[0], body->pos[0]);
+        root->minY = fmin(old_body->pos[1], body->pos[1]);
+        root->maxX = fmax(old_body->pos[0], body->pos[0]);
+        root->maxY = fmax(old_body->pos[1], body->pos[1]);
 
         // create the 4 subspaces
         root->ne = calloc(1, sizeof(struct node));
@@ -166,6 +183,12 @@ void insert__Tree(struct node *root, struct body *body)
 
 void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force)
 {
+
+    // se il nodo è vuoto
+    if(!root->body && !root->ne && !root->se && !root->nw && !root->sw)
+    {
+        return;
+    }
     // sono su una foglia
     if (root->body != NULL)
     {
@@ -180,11 +203,10 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
 
     }
     else
-    {
-
-        // calcola il rapporto tra s/d
+    {  
+        
         double ratio = calculate_ratio(root, body);
-        if (ratio < theta)
+        if (ratio <= theta)
         {
             // se il rapporto è minore di theta, approssima questo nodo come fosse un corpo e calcolane la forza
             struct body fake_body;
@@ -196,26 +218,23 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
         else
         {
             // altrimenti chiama ricorsivamente su i 4 figli
-            if(!root->ne && root->ne->body != NULL)
+            if(root->ne)
             {
             Tree__calculate_force(root->ne, body, theta, G, force);
             }
-            if(!root->se && root->se->body != NULL)
+            if(root->se)
             {
             Tree__calculate_force(root->se, body, theta, G, force);
             }
-            if(!root->nw && root->nw->body != NULL)
+            if(root->nw)
             {
             Tree__calculate_force(root->nw, body, theta, G, force);
             }
-            if(!root->sw && root->sw->body != NULL)
+            if(root->sw)
             {
             Tree__calculate_force(root->sw, body, theta, G, force);
             }
         }
-
     }
 
-
-    return;
 }

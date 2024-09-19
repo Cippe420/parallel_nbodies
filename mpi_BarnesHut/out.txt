@@ -1,2 +1,15 @@
+Processo 1 analizza corpo 2
+Processo 1 analizza corpo 2
+Processo 2 analizza corpo 4
+Processo 2 analizza corpo 4
+Processo 3 analizza corpo 6
+Processo 3 analizza corpo 6
+Processo 3 analizza corpo 6
+Processo 3 analizza corpo 6
+Processo 0 analizza corpo 0
+Processo 0 analizza corpo 0
 aperto file
-exec time: 4.362799
+exec time: 0.000502
+exec time: 0.000561
+exec time: 0.000250
+exec time: 0.000284

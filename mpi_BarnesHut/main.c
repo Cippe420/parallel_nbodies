@@ -12,6 +12,28 @@
 #define DELTA_T 0.1
 #define FILENAME "data.csv"
 #define TIMERFILE "mpi-bh-times.csv"
+#define PROFILERFILE "mpi-bh-profiler.csv"
+
+void profile_file(double time,int operation)
+{
+    FILE *fp;
+    fp = fopen(PROFILERFILE, "a");
+    if (fp == NULL)
+    {
+        printf("Error opening file\n");
+        exit(1);
+    }
+
+    if(operation)
+    {
+        fprintf(fp,"calculate_force: %f\n",time);
+    }
+    else
+    {
+        fprintf(fp,"insert: %f\n",time);
+    }
+    fclose(fp);
+}
 
 void print_sim(struct body bodies[], int n_bodies)
 {
@@ -81,7 +103,6 @@ int main(int argc, char **argv)
         }
     }
 
-    GET_TIME(start_t);
 
     if (rank == 0)
     {
@@ -96,6 +117,14 @@ int main(int argc, char **argv)
         FILE *fp;
         fp = fopen(FILENAME, "w");
         fclose(fp);
+
+        FILE *fp2;
+        fp2 = fopen(TIMERFILE, "w");
+        fclose(fp2);
+
+        FILE *fp3;
+        fp3 = fopen(PROFILERFILE, "w");
+        fclose(fp3);
     }
 
     // Broadcast the number of bodies to all processes
@@ -115,15 +144,51 @@ int main(int argc, char **argv)
     int start = rank * bodies_per_proc;
     int end = (rank == size - 1) ? n_bodies : start + bodies_per_proc;
 
+    // definita una struct temporanea per mantenere localmente i dati
+    typedef struct velocity{
+        double x;
+        double y;
+    }velocity;
+
+    typedef struct positions
+    {
+        double x;
+        double y;
+    }positions;
+
+    // creato array locale per mantenere le velocità
+    velocity tempVelocities[end-start];
+    positions tempPositions[end-start];
+
+    // each process locally saves initial velocities and positions
+    for (int i = start; i < end; i++)
+    {
+        tempVelocities[i-start].x = bodies[i].vel[0];
+        tempVelocities[i-start].y = bodies[i].vel[1];
+        tempPositions[i-start].x = bodies[i].pos[0];
+        tempPositions[i-start].y = bodies[i].pos[1];
+    }
+
+    GET_TIME(start_t);
     // for each timestep
     for (int t = 0; t < n_step; t++)
     {
         // Each process builds the whole tree
         struct node *root = (struct node *)calloc(1, sizeof(struct node));
-        init_node(root);
         for (int i = 0; i < n_bodies; i++)
         {
             insert__Tree(root, &bodies[i]);
+        }
+
+        GET_TIME(finish);
+
+
+        
+        elapsed = finish-start_t;
+        if(rank==0)
+        {
+            //profile_file(elapsed,0);
+            //GET_TIME(start_t);
         }
 
         // Each process calculates the force acting on it's own bodies
@@ -133,14 +198,27 @@ int main(int argc, char **argv)
             double force[2] = {0, 0};
             // calcola la forza sul tuo sotto-array di forze
             Tree__calculate_force(root, &bodies[i], THETA, G,force);
-
             // update velocities and position of bodies
-            bodies[i].vel[0] += (force[0] / bodies[i].mass)*DELTA_T;
-            bodies[i].vel[1] += (force[1]/bodies[i].mass)*DELTA_T;
-            bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
-            bodies[i].pos[1] += bodies[i].vel[1] * DELTA_T;
+            tempVelocities[i-start].x = tempVelocities[i-start].x + (force[0] / bodies[i].mass) * DELTA_T;
+            tempVelocities[i-start].y = tempVelocities[i-start].y + (force[1] / bodies[i].mass) * DELTA_T;
+            tempPositions[i-start].x = tempPositions[i-start].x + tempVelocities[i-start].x * DELTA_T;
+            tempPositions[i-start].y = tempPositions[i-start].y + tempVelocities[i-start].y * DELTA_T;
+        }
 
-            // se non sei il padre,manda il risultato al padre
+        for (int i = start; i < end ; i++)
+        {
+            // update velocity and position of bodies
+            bodies[i].vel[0] = tempVelocities[i-start].x;
+            bodies[i].vel[1] = tempVelocities[i-start].y;
+            bodies[i].pos[0] = tempPositions[i-start].x;
+            bodies[i].pos[1] = tempPositions[i-start].y;
+        }
+
+        if(rank ==0)
+        {
+            //GET_TIME(finish);
+            //elapsed = finish-start_t;
+            //profile_file(elapsed,1);
         }
 
         // Gather all updated bodies from all processes
@@ -150,7 +228,7 @@ int main(int argc, char **argv)
         {
             if (t % 1000 == 0)
             {
-                // print_sim(bodies, n_bodies);
+                print_sim(bodies, n_bodies);
                 // printf("%.2f%%\r", ((float)t / n_step) * 100);
                 // fflush(stdout);
             }
@@ -159,17 +237,13 @@ int main(int argc, char **argv)
         Tree__free(root);
     }
 
-    GET_TIME(finish);
-
-    elapsed = finish-start_t;
     if(rank==0)
     {
-        print_times(elapsed,n_step,n_bodies);
+        //print_times(elapsed,n_step,n_bodies);
     }
 
     free(bodies);
     MPI_Finalize();
-    printf("exec time: %f\n",elapsed);
 
     return 0;
 }
