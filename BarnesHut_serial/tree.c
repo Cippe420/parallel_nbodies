@@ -96,6 +96,33 @@ void Tree__free(struct node *root)
     free(root);
 }
 
+void insert_inPlace(struct node *root,struct body *body)
+{
+    // having found a body, insert the two bodies on that node child
+        // recursively insert the body in the appropriate quadrant
+    if (body->pos[0] >= root->com[0] && body->pos[1] >= root->com[1])
+    {
+        root->ne->body = body;
+        return;
+    }
+    else if (body->pos[0] >= root->com[0] && body->pos[1] < root->com[1])
+    {
+        root->se->body = body;
+        return;
+    }
+    else if (body->pos[0] < root->com[0] && body->pos[1] >= root->com[1])
+    {
+        root->nw->body = body;
+        return;
+    }
+    else if (body->pos[0] < root->com[0] && body->pos[1] < root->com[1])
+    {
+        root->sw->body = body;
+        return;
+    }
+
+}
+
 void insert__Tree(struct node *root, struct body *body)
 {
     // if node x is a leaf, insert the body
@@ -106,8 +133,6 @@ void insert__Tree(struct node *root, struct body *body)
         if (!root->body)
         {
             root->body = body;
-
-
             return;
         }
         // if there is a body, update the data of the node and insert both bodies in the appropriate quadrant
@@ -117,7 +142,6 @@ void insert__Tree(struct node *root, struct body *body)
         root->com[0] = ((old_body->mass * old_body->pos[0]) + (body->mass * body->pos[0])) / root->mass;
         root->com[1] = ((old_body->mass * old_body->pos[1]) + (body->mass * body->pos[1])) / root->mass;
 
-        root->mass = 0;
 
         root->minX = fmin(old_body->pos[0], body->pos[0]);
         root->minY = fmin(old_body->pos[1], body->pos[1]);
@@ -131,8 +155,8 @@ void insert__Tree(struct node *root, struct body *body)
         root->sw = calloc(1, sizeof(struct node));
 
         // maybe i dont have to check for inserting here
-        insert__Tree(root, old_body);
-        insert__Tree(root, body);
+        insert_inPlace(root,body);
+        insert_inPlace(root,old_body);
     }
     else
     {
@@ -184,14 +208,14 @@ void insert__Tree(struct node *root, struct body *body)
 void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force)
 {
 
-    // se il nodo è vuoto
-    if(!root->body && !root->ne && !root->se && !root->nw && !root->sw)
-    {
-        return;
-    }
     // sono su una foglia
-    if (root->body != NULL)
+    if (!root->ne && !root->nw && !root->se && !root->sw)
     {
+
+        if (!root->body)
+        {
+            return;
+        }
         if (root->body == body)
         {
             return;
@@ -204,7 +228,6 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
     }
     else
     {  
-        
         double ratio = calculate_ratio(root, body);
         if (ratio <= theta)
         {
@@ -214,26 +237,28 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
             fake_body.pos[0] = root->com[0];
             fake_body.pos[1] = root->com[1];
             compute_force(*body, fake_body, G, force);
+            return;
         }
         else
         {
-            // altrimenti chiama ricorsivamente su i 4 figli
-            if(root->ne)
+            // altrimenti chiama ricorsivamente su i 4 figli se ci sono corpi dentro
+            if(root->ne && (root->ne->mass > 0 || root->ne->body != NULL))
             {
             Tree__calculate_force(root->ne, body, theta, G, force);
             }
-            if(root->se)
+            if(root->se && (root->se->mass > 0 || root->se->body != NULL))
             {
             Tree__calculate_force(root->se, body, theta, G, force);
             }
-            if(root->nw)
+            if(root->nw && (root->nw->mass > 0 || root->nw->body != NULL))
             {
             Tree__calculate_force(root->nw, body, theta, G, force);
             }
-            if(root->sw)
+            if(root->sw && (root->sw->mass > 0 || root->sw->body != NULL))
             {
             Tree__calculate_force(root->sw, body, theta, G, force);
             }
+            return;
         }
     }
 

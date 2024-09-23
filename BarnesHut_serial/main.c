@@ -45,8 +45,23 @@ void print_times(double time,int steps,int bodies)
     fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
     fclose(fp);
 }
+
+void count_nodes(struct node *root,int *count)
+{
+    if(!root){
+        *count = *count+1;
+        return;
+        }
+    if(root)
+        *count=*count+1;
+    count_nodes(root->ne,count);
+    count_nodes(root->nw,count);
+    count_nodes(root->se,count);
+    count_nodes(root->sw,count);
+
+}
 // scrive dentro al profiler i tempi di esecuzione in base a profiling essendo True o False
-void write_profiler(double time,int operation)
+void write_profiler(double time,int operation,int count)
 {
     // operation being 0 for insert and 1 for calculate_force
 
@@ -60,7 +75,7 @@ void write_profiler(double time,int operation)
 
     if(operation)
     {
-        fprintf(fp,"calculate_force: %f\n\n",time);
+        fprintf(fp,"calculate_force eseguita %d volte: %f\n\n",count,time);
     }
     else
     {
@@ -167,17 +182,20 @@ int main(int argc, char **argv)
         {
             GET_TIME(finish);
             elapsed = finish - start;
+            write_profiler(elapsed,0,0);
         }
 
-        if (profiling)
-        {
-            write_profiler(elapsed,0);
-            // ristarta il timer per profilare la calculate force
-            GET_TIME(start);
-        }
         
         if(profiling && n_bodies < 30)
             print_tree(root);
+        int count = 0;
+
+        if (profiling)
+        {
+            //write_profiler(elapsed,0,0);
+            // ristarta il timer per profilare la calculate force
+            GET_TIME(start);
+        }
 
         for (int i = 0; i < n_bodies; i++)
         {
@@ -187,6 +205,7 @@ int main(int argc, char **argv)
             bodies[i].vel[1] += (force[1] / bodies[i].mass) * DELTA_T;
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
             bodies[i].pos[1] += bodies[i].vel[1] * DELTA_T;
+            count++;
         }
 
         if (profiling)
@@ -194,15 +213,14 @@ int main(int argc, char **argv)
             // stoppa il timer e scrive il tempo di esecuzione
             GET_TIME(finish);
             elapsed = finish - start;
-            write_profiler(elapsed,1);
+            write_profiler(elapsed,1,count);
         }
-
         Tree__free(root);
-        if (t % 1 == 0)
+        if (t % 1000000 == 0)
         {
-            //print_sim(bodies, n_bodies);
-            //printf("%.2f%%\r", ((float)t / n_step) * 100);
-            //fflush(stdout);
+            print_sim(bodies, n_bodies);
+            printf("%.2f%%\r", ((float)t / n_step) * 100);
+            fflush(stdout);
         }
     }
     if (profiling)

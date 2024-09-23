@@ -163,7 +163,7 @@ void insert__Tree(struct node *root, struct body *body)
     return;
 }
 
-
+//
 void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force)
 {
 
