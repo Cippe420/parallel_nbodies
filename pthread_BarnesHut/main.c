@@ -11,7 +11,7 @@
 #define G 6.674e-11
 #define DELTA_T 0.1
 #define FILENAME "data.csv"
-#define NUM_THREADS 8
+#define NUM_THREADS 4
 #define TIMERFILE "pthread-bh-times.csv"
 #define PROFILERFILE "pthread-bh-profiler.csv"
 
@@ -38,7 +38,7 @@ struct thread_data
     FILE *fp;
 };
 
-void profile_file(double time, int operation,int count)
+void profile_file(double time, int operation)
 {
     FILE *fp;
     fp = fopen(PROFILERFILE, "a");
@@ -50,7 +50,7 @@ void profile_file(double time, int operation,int count)
 
     if (operation)
     {
-        fprintf(fp, "calculate_force eseguita %d volte:  %f\n", count,time);
+        fprintf(fp, "calculate_force: %f\n",time);
     }
     else
     {
@@ -98,7 +98,6 @@ void print_times(double time,int steps,int bodies)
     FILE *fp;
 
     fp = fopen(TIMERFILE, "a");
-    printf("aperto file\n");
     if (fp == NULL)
     {
         printf("Error opening file\n");
@@ -153,25 +152,12 @@ void *calculate_subset(void *threaddata)
     for (unsigned long long t = 0; t < n_step; t++)
     {
         struct node *root = (struct node *)calloc(1,sizeof(struct node));
-
-        GET_TIME(start_timer);
-
+    
         for (unsigned long long i = 0; i < n_bodies; i++)
         {
             insert__Tree(root, &bodies[i]);
         }
 
-        GET_TIME(finish);
-
-        elapsed = finish-start_timer;
-
-
-        int count = 0;
-        if(tid==0)
-        {
-            //profile_file(elapsed,0,0);
-            GET_TIME(start_timer);
-        }
         // calculate force for bodies set
         for (unsigned long long i = start; i < end; i++)
         {
@@ -181,16 +167,7 @@ void *calculate_subset(void *threaddata)
             tempVelocities[i-start].y = tempVelocities[i-start].y + (force[1] / bodies[i].mass) * DELTA_T;
             tempPositions[i-start].x = tempPositions[i-start].x + tempVelocities[i-start].x * DELTA_T;
             tempPositions[i-start].y = tempPositions[i-start].y + tempVelocities[i-start].y * DELTA_T;
-            count++;
         }   
-        
-        // update velocities and position of bodies
-        if (tid == 0)
-        {
-            GET_TIME(finish);
-            elapsed = finish-start_timer;
-            profile_file(elapsed,1,count);
-        }
 
         for (unsigned long long i = start; i < end; i++)
         {
@@ -273,9 +250,9 @@ int main(int argc, char **argv)
     fp2 = fopen(TIMERFILE, "w");
     fclose(fp2);
 
-    FILE *fp3;
-    fp3 = fopen(PROFILERFILE, "w");
-    fclose(fp3);
+    // FILE *fp3;
+    // fp3 = fopen(PROFILERFILE, "w");
+    // fclose(fp3);
 
 
     // initialize thread data
@@ -298,6 +275,9 @@ int main(int argc, char **argv)
         thread_data_array[i].root = root;
     }
 
+    double start_t, finish, elapsed;
+    GET_TIME(start_t);
+
     for (int i = 0; i < NUM_THREADS; i++)
     {
         pthread_create(&threads[i], NULL, calculate_subset, (void *)&thread_data_array[i]);
@@ -307,6 +287,12 @@ int main(int argc, char **argv)
     {
         pthread_join(threads[i], NULL);
     }
+
+    GET_TIME(finish);
+
+    elapsed = finish - start_t;
+
+    print_times(elapsed, n_step, n_bodies);
 
     pthread_barrier_destroy(&barrier);
 

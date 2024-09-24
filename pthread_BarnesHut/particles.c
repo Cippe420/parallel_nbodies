@@ -69,11 +69,21 @@ struct body *random_init(struct body *bodies,int *n_bodies){
     int n = *n_bodies;
     for(int i = 0;i < n; i++)
     {
-        // yup, i just did that,devious
-        bodies[i].mass = i+1;
-        bodies[i].pos[0] = i;
-        bodies[i].pos[1] = i;
+        bodies[i].mass = 10*i+1;
+        if (i%2==0){
+            bodies[i].pos[0] = 40*(-1)*i+1;
+            bodies[i].pos[1] = 400*(-1)*i+1;
+
+        }else
+        {
+            bodies[i].pos[0] = 40*i+1;
+            bodies[i].pos[1] = 400*i+1;
+
+        }
+
+        
     }
+
 
     return bodies;
 }

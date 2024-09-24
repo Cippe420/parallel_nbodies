@@ -61,7 +61,7 @@ void count_nodes(struct node *root,int *count)
 
 }
 // scrive dentro al profiler i tempi di esecuzione in base a profiling essendo True o False
-void write_profiler(double time,int operation,int count)
+void write_profiler(double time,int operation)
 {
     // operation being 0 for insert and 1 for calculate_force
 
@@ -75,7 +75,7 @@ void write_profiler(double time,int operation,int count)
 
     if(operation)
     {
-        fprintf(fp,"calculate_force eseguita %d volte: %f\n\n",count,time);
+        fprintf(fp,"calculate_force: %f\n\n",time);
     }
     else
     {
@@ -159,11 +159,12 @@ int main(int argc, char **argv)
     fp2 = fopen(TIMERFILE, "w");
     fclose(fp2);
 
-    FILE *fp3;
-    fp3 = fopen(PROFILERFILE, "w");
-    fclose(fp3);
+    // FILE *fp3;
+    // fp3 = fopen(PROFILERFILE, "w");
+    // fclose(fp3);
+    double startimer,finishtimer,elapsedtimer;
 
-    
+    GET_TIME(startimer);
     // starta la simulazione, se profiling è True (1) , salva all'interno del profiler file i tempi di esecuzione
     for (int t = 0; t < n_step; t++)
     {
@@ -182,7 +183,7 @@ int main(int argc, char **argv)
         {
             GET_TIME(finish);
             elapsed = finish - start;
-            write_profiler(elapsed,0,0);
+            write_profiler(elapsed,0);
         }
 
         
@@ -202,7 +203,6 @@ int main(int argc, char **argv)
             double force[2] = {0, 0};
             int count = 0;
             Tree__calculate_force(root, &bodies[i], THETA, G,force,&count);
-            printf("nodi scorsi : %d\n",count);
             bodies[i].vel[0] += (force[0] / bodies[i].mass) * DELTA_T;
             bodies[i].vel[1] += (force[1] / bodies[i].mass) * DELTA_T;
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
@@ -215,7 +215,7 @@ int main(int argc, char **argv)
             // stoppa il timer e scrive il tempo di esecuzione
             GET_TIME(finish);
             elapsed = finish - start;
-            write_profiler(elapsed,1,count);
+            write_profiler(elapsed,1);
         }
         Tree__free(root);
         if (t % 1000000 == 0)
@@ -230,6 +230,9 @@ int main(int argc, char **argv)
         GET_TIME(finish);
         elapsed = finish - start;
     }
+    GET_TIME(finishtimer);
+    elapsedtimer = finishtimer - startimer;
+    print_times(elapsedtimer,n_step,n_bodies);
     free(bodies);
 
     return 0;

@@ -7,6 +7,7 @@
 #define FILENAME "data.csv"
 #define DELTA_T 0.1
 #define TIMERFILE "serial-nbodies-times.csv"
+#define PROFILERFILE "serial-nbodies-profiler.csv"
 #include "timer.h"
 
 void print_sim(struct body bodies[], int n_bodies)
@@ -71,7 +72,6 @@ int main(int argc, char **argv)
 
     struct body *bodies=NULL;
 
-    GET_TIME(start);
 
     bodies=simulation__init(simulation_name, bodies, &n_bodies);
     if (bodies == NULL || n_bodies == 0)
@@ -84,6 +84,11 @@ int main(int argc, char **argv)
     fp = fopen(FILENAME, "w");
     fclose(fp);
 
+    FILE *fp2;
+    fp2 = fopen(TIMERFILE, "w");
+    fclose(fp2);
+
+    GET_TIME(start);
     for (int t = 0; t < n_step; t++)
     {
 

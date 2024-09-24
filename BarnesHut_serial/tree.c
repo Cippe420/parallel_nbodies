@@ -157,6 +157,7 @@ void insert__Tree(struct node *root, struct body *body)
         root->com[0] = ((old_body->mass * old_body->pos[0]) + (body->mass * body->pos[0])) / root->mass;
         root->com[1] = ((old_body->mass * old_body->pos[1]) + (body->mass * body->pos[1])) / root->mass;
 
+
         // update subspace limit positions
         if (old_body->pos[0] <= body ->pos[0])
         {

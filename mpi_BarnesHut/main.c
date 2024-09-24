@@ -122,9 +122,9 @@ int main(int argc, char **argv)
         fp2 = fopen(TIMERFILE, "w");
         fclose(fp2);
 
-        FILE *fp3;
-        fp3 = fopen(PROFILERFILE, "w");
-        fclose(fp3);
+        // FILE *fp3;
+        // fp3 = fopen(PROFILERFILE, "w");
+        // fclose(fp3);
     }
 
     // Broadcast the number of bodies to all processes
@@ -173,22 +173,13 @@ int main(int argc, char **argv)
     // for each timestep
     for (int t = 0; t < n_step; t++)
     {
+
+
         // Each process builds the whole tree
         struct node *root = (struct node *)calloc(1, sizeof(struct node));
         for (int i = 0; i < n_bodies; i++)
         {
             insert__Tree(root, &bodies[i]);
-        }
-
-        GET_TIME(finish);
-
-
-        
-        elapsed = finish-start_t;
-        if(rank==0)
-        {
-            //profile_file(elapsed,0);
-            //GET_TIME(start_t);
         }
 
         // Each process calculates the force acting on it's own bodies
@@ -214,13 +205,6 @@ int main(int argc, char **argv)
             bodies[i].pos[1] = tempPositions[i-start].y;
         }
 
-        if(rank ==0)
-        {
-            //GET_TIME(finish);
-            //elapsed = finish-start_t;
-            //profile_file(elapsed,1);
-        }
-
         // Gather all updated bodies from all processes
         MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, bodies, bodies_per_proc * sizeof(struct body), MPI_BYTE, MPI_COMM_WORLD);
 
@@ -228,7 +212,7 @@ int main(int argc, char **argv)
         {
             if (t % 1000 == 0)
             {
-                print_sim(bodies, n_bodies);
+                //print_sim(bodies, n_bodies);
                 // printf("%.2f%%\r", ((float)t / n_step) * 100);
                 // fflush(stdout);
             }
@@ -236,10 +220,11 @@ int main(int argc, char **argv)
 
         Tree__free(root);
     }
-
     if(rank==0)
     {
-        //print_times(elapsed,n_step,n_bodies);
+        GET_TIME(finish);
+        elapsed = finish - start_t;
+        print_times(elapsed,n_step,n_bodies);
     }
 
     free(bodies);

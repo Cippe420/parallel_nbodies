@@ -7,10 +7,10 @@ OBJECT:= $(SRCS:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJECT)
-	gcc -g -Wall -o $@ $^ -lpthread -lm
+	gcc -g -Wall -O2 -o $@ $^ -lpthread -lm
 
 %.o: %.c
-	gcc -g -Wall -c -o $@ $< 
+	gcc -g -Wall -O2 -c -o $@ $< 
 
 clean:
 	rm -f $(TARGET) $(OBJECT) 

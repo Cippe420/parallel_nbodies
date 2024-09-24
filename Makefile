@@ -1,5 +1,5 @@
 # Definisci le directory che contengono i sotto-makefile
-SUBDIRS := "BarnesHut_serial" "mpi_BarnesHut" "mpi_parallel_nbodies" "pthread_BarnesHut" "pthread_parallel_nbodies"
+SUBDIRS := "BarnesHut_serial" "mpi_BarnesHut" "mpi_parallel_nbodies" "pthread_BarnesHut" "pthread_parallel_nbodies" "serial_nbodies"
 
 .PHONY: all clean
 
