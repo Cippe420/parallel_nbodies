@@ -98,25 +98,40 @@ void Tree__free(struct node *root)
 
 void insert_inPlace(struct node *root,struct body *body)
 {
-    // having found a body, insert the two bodies on that node child
-        // recursively insert the body in the appropriate quadrant
+    // having found a body, insert the two bodies on that node child, creating the node if it's not present
     if (body->pos[0] >= root->com[0] && body->pos[1] >= root->com[1])
     {
+        if (!root->ne)
+        {
+            root->ne = calloc(1, sizeof(struct node));
+        }
         root->ne->body = body;
         return;
     }
     else if (body->pos[0] >= root->com[0] && body->pos[1] < root->com[1])
-    {
+    {   
+        if (!root->se)
+        {
+            root->se = calloc(1, sizeof(struct node));
+        }
         root->se->body = body;
         return;
     }
     else if (body->pos[0] < root->com[0] && body->pos[1] >= root->com[1])
     {
+        if(!root->nw)
+        {
+            root->nw = calloc(1, sizeof(struct node));
+        }
         root->nw->body = body;
         return;
     }
     else if (body->pos[0] < root->com[0] && body->pos[1] < root->com[1])
     {
+        if(!root->sw)
+        {
+            root->sw = calloc(1, sizeof(struct node));
+        }
         root->sw->body = body;
         return;
     }
@@ -142,17 +157,27 @@ void insert__Tree(struct node *root, struct body *body)
         root->com[0] = ((old_body->mass * old_body->pos[0]) + (body->mass * body->pos[0])) / root->mass;
         root->com[1] = ((old_body->mass * old_body->pos[1]) + (body->mass * body->pos[1])) / root->mass;
 
-
-        root->minX = fmin(old_body->pos[0], body->pos[0]);
-        root->minY = fmin(old_body->pos[1], body->pos[1]);
-        root->maxX = fmax(old_body->pos[0], body->pos[0]);
-        root->maxY = fmax(old_body->pos[1], body->pos[1]);
-
-        // create the 4 subspaces
-        root->ne = calloc(1, sizeof(struct node));
-        root->se = calloc(1, sizeof(struct node));
-        root->nw = calloc(1, sizeof(struct node));
-        root->sw = calloc(1, sizeof(struct node));
+        // update subspace limit positions
+        if (old_body->pos[0] <= body ->pos[0])
+        {
+            root->minX = old_body->pos[0];
+            root->maxX = body->pos[0];
+        }
+        else
+        {
+            root->maxX = old_body->pos[0];
+            root->minX = body->pos[0];
+        }
+        if(old_body->pos[1] <= body->pos[1])
+        {
+            root->minY = old_body->pos[1];
+            root->maxY = body->pos[1];
+        }
+        else
+        {
+            root->minY = body->pos[1];
+            root->maxY = old_body->pos[1];
+        }
 
         // maybe i dont have to check for inserting here
         insert_inPlace(root,body);
@@ -172,30 +197,61 @@ void insert__Tree(struct node *root, struct body *body)
             root->com[0] = (root->com[0] * root->mass + body->pos[0] * body->mass) / (root->mass + body->mass);
             root->com[1] = (root->com[1] * root->mass + body->pos[1] * body->mass) / (root->mass + body->mass);
 
-            root->minX = fmin(root->minX, body->pos[0]);
-            root->minY = fmin(root->minY, body->pos[1]);
-            root->maxX = fmax(root->maxX, body->pos[0]);
-            root->maxY = fmax(root->maxY, body->pos[1]);
+            
+            // update subspace limits while inserting
+            if (body->pos[0] < root->minX)
+            {
+                root->minX = body->pos[0];
+            }
+            if (body->pos[0] > root->maxX)
+            {
+                root->maxX = body->pos[0];
+            }
+            if (body->pos[1] < root->minY)
+            {
+                root->minY = body->pos[1];
+            }
+            if (body->pos[1] > root->maxY)
+            {
+                root->maxY = body->pos[1];
+            }
+
         }   
     
-        // recursively insert the body in the appropriate quadrant
+        // recursively insert the body in the appropriate quadrant , creating the subspace if needed
         if (body->pos[0] >= root->com[0] && body->pos[1] >= root->com[1])
         {
+            if (!root->ne)
+            {
+                root->ne = calloc(1, sizeof(struct node));
+            }
             insert__Tree(root->ne, body);
             return;
         }
         else if (body->pos[0] >= root->com[0] && body->pos[1] < root->com[1])
         {
+            if(!root->se)
+            {
+                root->se = calloc(1, sizeof(struct node));
+            }
             insert__Tree(root->se, body);
             return;
         }
         else if (body->pos[0] < root->com[0] && body->pos[1] >= root->com[1])
         {
+            if (!root->nw)
+            {
+                root->nw = calloc(1, sizeof(struct node));
+            }
             insert__Tree(root->nw, body);
             return;
         }
         else if (body->pos[0] < root->com[0] && body->pos[1] < root->com[1])
         {
+            if(!root->sw)
+            {
+                root->sw = calloc(1, sizeof(struct node));            
+            }
             insert__Tree(root->sw, body);
             return;
         }
@@ -205,12 +261,13 @@ void insert__Tree(struct node *root, struct body *body)
 }
 
 
-void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force)
+void Tree__calculate_force(struct node *root,struct body *body, double theta, double G, double *force,int *count)
 {
 
     // sono su una foglia
     if (!root->ne && !root->nw && !root->se && !root->sw)
     {
+        *count = *count +1;
 
         if (!root->body)
         {
@@ -220,7 +277,7 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
         {
             return;
         }
-        else
+        else if (root->body != NULL)
         {
             compute_force(*body, *root->body, G, force);
         }
@@ -228,11 +285,12 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
     }
     else
     {  
+        *count = *count +1;
         double ratio = calculate_ratio(root, body);
         if (ratio <= theta)
         {
             // se il rapporto è minore di theta, approssima questo nodo come fosse un corpo e calcolane la forza
-            struct body fake_body;
+            struct body fake_body = {0};
             fake_body.mass = root->mass;
             fake_body.pos[0] = root->com[0];
             fake_body.pos[1] = root->com[1];
@@ -242,21 +300,21 @@ void Tree__calculate_force(struct node *root,struct body *body, double theta, do
         else
         {
             // altrimenti chiama ricorsivamente su i 4 figli se ci sono corpi dentro
-            if(root->ne && (root->ne->mass > 0 || root->ne->body != NULL))
+            if(root->ne)
             {
-            Tree__calculate_force(root->ne, body, theta, G, force);
+                Tree__calculate_force(root->ne, body, theta, G, force,count);
             }
-            if(root->se && (root->se->mass > 0 || root->se->body != NULL))
+            if(root->se)
             {
-            Tree__calculate_force(root->se, body, theta, G, force);
+                Tree__calculate_force(root->se, body, theta, G, force,count);
             }
-            if(root->nw && (root->nw->mass > 0 || root->nw->body != NULL))
+            if(root->nw)
             {
-            Tree__calculate_force(root->nw, body, theta, G, force);
+                Tree__calculate_force(root->nw, body, theta, G, force,count);
             }
-            if(root->sw && (root->sw->mass > 0 || root->sw->body != NULL))
+            if(root->sw)
             {
-            Tree__calculate_force(root->sw, body, theta, G, force);
+                Tree__calculate_force(root->sw, body, theta, G, force,count);
             }
             return;
         }

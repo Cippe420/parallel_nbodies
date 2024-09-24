@@ -200,7 +200,9 @@ int main(int argc, char **argv)
         for (int i = 0; i < n_bodies; i++)
         {
             double force[2] = {0, 0};
-            Tree__calculate_force(root, &bodies[i], THETA, G,force);
+            int count = 0;
+            Tree__calculate_force(root, &bodies[i], THETA, G,force,&count);
+            printf("nodi scorsi : %d\n",count);
             bodies[i].vel[0] += (force[0] / bodies[i].mass) * DELTA_T;
             bodies[i].vel[1] += (force[1] / bodies[i].mass) * DELTA_T;
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
@@ -218,9 +220,9 @@ int main(int argc, char **argv)
         Tree__free(root);
         if (t % 1000000 == 0)
         {
-            print_sim(bodies, n_bodies);
-            printf("%.2f%%\r", ((float)t / n_step) * 100);
-            fflush(stdout);
+            // print_sim(bodies, n_bodies);
+            // printf("%.2f%%\r", ((float)t / n_step) * 100);
+            // fflush(stdout);
         }
     }
     if (profiling)
@@ -228,7 +230,6 @@ int main(int argc, char **argv)
         GET_TIME(finish);
         elapsed = finish - start;
     }
-    print_times(elapsed,n_step,n_bodies);
     free(bodies);
 
     return 0;
