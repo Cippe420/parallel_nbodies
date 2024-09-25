@@ -16,6 +16,7 @@ struct node
     struct node *nw;
     struct node *sw;
 };
+//
 // unused
 void calculate_force(struct node *root, struct body *body, double theta, double *force,double G);
 // print the whole tree (debug purposes)
@@ -40,6 +41,7 @@ void Node__free(struct node *root);
 void Tree__insert(struct node *root, struct body *body);
 // calculate total force acting on a body using the BH-tree
 void Tree__calculate_force(struct node *root, struct body *body, double theta,double G,double *force,int *count);
+void modified_insert(struct node *root,struct body *body);
 // insert a body given a node (used in insert_tree when body found in leaf)
 void insert_inPlace(struct node *root,struct body *body);
 

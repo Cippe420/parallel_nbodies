@@ -159,9 +159,9 @@ int main(int argc, char **argv)
     fp2 = fopen(TIMERFILE, "w");
     fclose(fp2);
 
-    // FILE *fp3;
-    // fp3 = fopen(PROFILERFILE, "w");
-    // fclose(fp3);
+    FILE *fp3;
+    fp3 = fopen(PROFILERFILE, "w");
+    fclose(fp3);
     double startimer,finishtimer,elapsedtimer;
 
     GET_TIME(startimer);
@@ -173,10 +173,43 @@ int main(int argc, char **argv)
         if (profiling)
             GET_TIME(start);
 
+        double minX,minY,maxX,maxY;
+        minX = bodies[0].pos[0];
+        maxX = bodies[0].pos[0];
+        minY = bodies[0].pos[1];
+        maxY = bodies[0].pos[1];
+        // get max coordinates of the space
+        for(int i = 0; i < n_bodies; i++)
+        {
+            if (bodies[i].pos[0] < minX)
+            {
+                minX = bodies[i].pos[0];
+            }
+
+            if(bodies[i].pos[1] < minY)
+            {
+                minY = bodies[i].pos[1];
+            }
+
+            if(bodies[i].pos[0] > maxX)
+            {
+                maxX = bodies[i].pos[0];
+            }
+
+            if (bodies[i].pos[1] > maxY)
+            {
+                maxY = bodies[i].pos[1];
+            }
+        }
+
+        root->minX = minX;
+        root->minY = minY;
+        root->maxX = maxX;
+        root->maxY = maxY;
         for (int i = 0; i < n_bodies; i++)
         {
 
-            insert__Tree(root, &bodies[i]);
+            modified_insert(root, &bodies[i]);
         }
 
         if (profiling)
@@ -202,7 +235,9 @@ int main(int argc, char **argv)
         {
             double force[2] = {0, 0};
             int count = 0;
+            //printf("iniziato a calcolare per il corpo : %p\n\n",&bodies[i]);
             Tree__calculate_force(root, &bodies[i], THETA, G,force,&count);
+            //printf("\nfinito di calcolare per il corpo : %p\n\n",&bodies[i]);
             bodies[i].vel[0] += (force[0] / bodies[i].mass) * DELTA_T;
             bodies[i].vel[1] += (force[1] / bodies[i].mass) * DELTA_T;
             bodies[i].pos[0] += bodies[i].vel[0] * DELTA_T;
@@ -220,9 +255,9 @@ int main(int argc, char **argv)
         Tree__free(root);
         if (t % 1000000 == 0)
         {
-            // print_sim(bodies, n_bodies);
-            // printf("%.2f%%\r", ((float)t / n_step) * 100);
-            // fflush(stdout);
+            print_sim(bodies, n_bodies);
+            printf("%.2f%%\r", ((float)t / n_step) * 100);
+            fflush(stdout);
         }
     }
     if (profiling)

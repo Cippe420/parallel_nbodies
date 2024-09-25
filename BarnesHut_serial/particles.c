@@ -37,13 +37,14 @@ struct body* random_init(struct body *bodies, int *n_bodies)
     int n = *n_bodies;
     for(int i = 0;i < n; i++)
     {
-        bodies[i].mass = 10*i+1;
         if (i%2==0){
+            bodies[i].mass = 10*i+1;
             bodies[i].pos[0] = 40*(-1)*i+1;
             bodies[i].pos[1] = 400*(-1)*i+1;
 
         }else
         {
+            bodies[i].mass = 1000*i+1;        
             bodies[i].pos[0] = 40*i+1;
             bodies[i].pos[1] = 400*i+1;
 
