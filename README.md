@@ -16,7 +16,13 @@ Ho quindi aggiunto un renderer per illustrare l'esito delle simulazioni.
 Il progetto è sviluppato su Linux, quindi non assicuro il funzionamento su altre piattaforme visto l'utilizzo
 di librerie multi-thread.
 
-Per compilare è necessario inserirsi nella directory specifica dell'implementazione che si vuole testare.
+Per compilare direttamente ogni programma basta digitare,restando nella root del progetto "parallel_nbodies":
+
+```
+make all
+```
+
+Per compilare singolarmente è necessario inserirsi nella directory specifica dell'implementazione che si vuole testare.
 In seguito è sufficiente eseguire il comando:
 
 ```
@@ -51,6 +57,20 @@ Per osservare la simulazione tramite il renderer è sufficiente:
 
 Dopo che il programma ha terminato la sua esecuzione, viene prodotta una clip "animation.mp4" della durata 
 variabile.
+
+## Testare i programmi
+
+Per testare i vari programmi è possibile usare il tester:
+
+    - Runnare gli script produrrà i risultati in specifici file ".csv"
+
+Inoltre le medie dei tempi di esecuzione sono salvati in "results.csv", è possibile infatti runnare più
+istanze dei programmi così da ottenere un risultato il più accurato possibile, è sufficiente modificare la variabile "n".
+
+La funzione "write_results" indica implicitamente il file in cui salvare i risultati. ()
+Nel caso di 2 processi si può indicare "speedups2.csv" come file di destinazione.
+Nel caso di 4 processi analogamente si può indicare "speedups4.csv".
+
 
 # Funzionamento
 

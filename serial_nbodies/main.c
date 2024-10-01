@@ -84,9 +84,9 @@ int main(int argc, char **argv)
     fp = fopen(FILENAME, "w");
     fclose(fp);
 
-    FILE *fp2;
-    fp2 = fopen(TIMERFILE, "w");
-    fclose(fp2);
+    // FILE *fp2;
+    // fp2 = fopen(TIMERFILE, "w");
+    // fclose(fp2);
 
     GET_TIME(start);
     for (int t = 0; t < n_step; t++)

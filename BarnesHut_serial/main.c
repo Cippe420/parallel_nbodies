@@ -155,13 +155,13 @@ int main(int argc, char **argv)
     fp = fopen(FILENAME, "w");
     fclose(fp);
 
-    FILE *fp2;
-    fp2 = fopen(TIMERFILE, "w");
-    fclose(fp2);
+    // FILE *fp2;
+    // fp2 = fopen(TIMERFILE, "w");
+    // fclose(fp2);
 
-    FILE *fp3;
-    fp3 = fopen(PROFILERFILE, "w");
-    fclose(fp3);
+    // FILE *fp3;
+    // fp3 = fopen(PROFILERFILE, "w");
+    // fclose(fp3);
     double startimer,finishtimer,elapsedtimer;
 
     GET_TIME(startimer);
@@ -222,7 +222,7 @@ int main(int argc, char **argv)
         
         if(profiling && n_bodies < 30)
             print_tree(root);
-        int count = 0;
+        //int count = 0;
 
         if (profiling)
         {
@@ -253,7 +253,7 @@ int main(int argc, char **argv)
             write_profiler(elapsed,1);
         }
         Tree__free(root);
-        if (t % 1000000 == 0)
+        if (t % 10 == 0)
         {
             print_sim(bodies, n_bodies);
             printf("%.2f%%\r", ((float)t / n_step) * 100);

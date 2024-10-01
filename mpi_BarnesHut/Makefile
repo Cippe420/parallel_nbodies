@@ -7,10 +7,10 @@ OBJECT:= $(SRCS:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJECT)
-	mpicc -g -Wall -O2 -o $@ $^ -lm
+	mpicc -g -Wall -flto -O2 -o $@ $^ -lm
 
 %.o: %.c
-	mpicc -g -Wall -O2 -c -o $@ $< 
+	mpicc -g -Wall -flto -O2 -c -o $@ $< 
 
 clean:
 	rm -f $(TARGET) $(OBJECT) 

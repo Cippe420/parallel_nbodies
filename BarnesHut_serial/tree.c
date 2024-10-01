@@ -443,7 +443,5 @@ void modified_insert(struct node * root, struct body *body)
 
     }
 
-
-
     return;
 }

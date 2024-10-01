@@ -6,7 +6,7 @@
 #include <string.h>
 #include "timer.h"
 
-#define NUM_THREADS 8
+#define NUM_THREADS 4
 #define G 6.67259e-11
 #define FILENAME "data.csv"
 #define TIMERFILE "pthread-parallel-times.csv"
@@ -74,8 +74,6 @@ void *calculate_subset(void *arg)
 
     
     memcpy(temparray,&bodies[start],(end-start)*sizeof(struct body));
-
-
     for (unsigned long long t = 0; t < n_step;t++)
     {
 
@@ -90,22 +88,17 @@ void *calculate_subset(void *arg)
             {
                 if (i!=j)
                 {
-
                     // compute force and acceleration between the bodies
                     compute_force(bodies[i],bodies[j],G,force);
-                    double acc[2] = {0, 0};
-                    compute_acceleration(bodies[i], force, acc);
-                    
-                    // write it into the temparray
-                    temparray[i-start].vel[0] += acc[0]*DELTA_T;
-                    temparray[i-start].vel[1] += acc[1]*DELTA_T;
-                    temparray[i-start].pos[0] += temparray[i-start].vel[0]*DELTA_T;
-                    temparray[i-start].pos[1] += temparray[i-start].vel[1]*DELTA_T;
-
                 }
-
             }
-
+            double acc[2] = {0, 0};
+            compute_acceleration(bodies[i], force, acc);                    
+            temparray[i-start].vel[0] += acc[0]*DELTA_T;
+            temparray[i-start].vel[1] += acc[1]*DELTA_T;
+            temparray[i-start].pos[0] += temparray[i-start].vel[0]*DELTA_T;
+            temparray[i-start].pos[1] += temparray[i-start].vel[1]*DELTA_T;
+                // write it into the temparray
             // barrier
         }
 

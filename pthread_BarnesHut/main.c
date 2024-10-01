@@ -120,7 +120,7 @@ void *calculate_subset(void *threaddata)
     int n_bodies = data->n_bodies;
     int n_step = data->n_step;
     int tid = data->tid;
-    double start_timer,finish,elapsed;
+    //double start_timer,finish,elapsed;
 
 
 
@@ -152,10 +152,43 @@ void *calculate_subset(void *threaddata)
     for (unsigned long long t = 0; t < n_step; t++)
     {
         struct node *root = (struct node *)calloc(1,sizeof(struct node));
+        double minX,minY,maxX,maxY;
+        minX = bodies[0].pos[0];
+        maxX = bodies[0].pos[0];
+        minY = bodies[0].pos[1];
+        maxY = bodies[0].pos[1];
+        // get max coordinates of the space
+        for(int i = 0; i < n_bodies; i++)
+        {
+            if (bodies[i].pos[0] < minX)
+            {
+                minX = bodies[i].pos[0];
+            }
+
+            if(bodies[i].pos[1] < minY)
+            {
+                minY = bodies[i].pos[1];
+            }
+
+            if(bodies[i].pos[0] > maxX)
+            {
+                maxX = bodies[i].pos[0];
+            }
+
+            if (bodies[i].pos[1] > maxY)
+            {
+                maxY = bodies[i].pos[1];
+            }
+        }
+
+        root->minX = minX;
+        root->minY = minY;
+        root->maxX = maxX;
+        root->maxY = maxY;
     
         for (unsigned long long i = 0; i < n_bodies; i++)
         {
-            insert__Tree(root, &bodies[i]);
+            modified_insert(root, &bodies[i]);
         }
 
         // calculate force for bodies set
@@ -246,9 +279,9 @@ int main(int argc, char **argv)
     fp = fopen(FILENAME, "w");
     fclose(fp);
 
-    FILE *fp2;
-    fp2 = fopen(TIMERFILE, "w");
-    fclose(fp2);
+    // FILE *fp2;
+    // fp2 = fopen(TIMERFILE, "w");
+    // fclose(fp2);
 
     // FILE *fp3;
     // fp3 = fopen(PROFILERFILE, "w");
