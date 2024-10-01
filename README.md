@@ -62,7 +62,7 @@ variabile.
 
 Per testare i vari programmi è possibile usare il tester:
 
-    - Runnare gli script produrrà i risultati in specifici file ".csv"
+- Runnare gli script produrrà i risultati in specifici file ".csv"
 
 Inoltre le medie dei tempi di esecuzione sono salvati in "results.csv", è possibile infatti runnare più
 istanze dei programmi così da ottenere un risultato il più accurato possibile, è sufficiente modificare la variabile "n".
