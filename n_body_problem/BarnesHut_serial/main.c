@@ -29,7 +29,7 @@ void print_sim(struct body bodies[], int n_bodies)
     fclose(fp);
 }
 
-void print_times(double time,int steps,int bodies)
+void print_times(double time, int steps, int bodies)
 {
     FILE *fp;
 
@@ -41,7 +41,7 @@ void print_times(double time,int steps,int bodies)
         exit(1);
     }
 
-    fprintf(fp,"[t=%d,n=%d] Elapsed time : %f\n",steps,bodies,time);
+    fprintf(fp, "[t=%d,n=%d] Elapsed time : %f\n", steps, bodies, time);
     fclose(fp);
 }
 
@@ -50,13 +50,13 @@ int main(int argc, char **argv)
 
     // initialize data for simulation
     int opt;
-    struct body *bodies=NULL;
+    struct body *bodies = NULL;
     int n_bodies = 0;
     int n_step = 10000;
-    int width,height;
+    int width, height;
     char *saveptr;
-    char simulation_name[32]="earth_sun";
-    double start,finish,elapsed;
+    char simulation_name[32] = "earth_sun";
+    double start, finish, elapsed;
 
     while ((opt = getopt(argc, argv, "t:n:S:C:")) != -1)
     {
@@ -72,10 +72,11 @@ int main(int argc, char **argv)
             strcpy(simulation_name, optarg);
             break;
         case 'C':
-            width = atoi(strtok_r(optarg, "-",&saveptr));
-            height = atoi(strtok_r(NULL, "-",&saveptr)); 
-            if (!(width && height)){
-                fprintf(stderr,"è necessario inserire altezza e larghezza"); 
+            width = atoi(strtok_r(optarg, "-", &saveptr));
+            height = atoi(strtok_r(NULL, "-", &saveptr));
+            if (!(width && height))
+            {
+                fprintf(stderr, "è necessario inserire altezza e larghezza");
                 return -1;
             }
             break;
@@ -87,8 +88,7 @@ int main(int argc, char **argv)
 
     GET_TIME(start);
 
-
-    bodies = simulation__init(simulation_name,bodies,&n_bodies);
+    bodies = simulation__init(simulation_name, bodies, &n_bodies);
 
     if (bodies == NULL || n_bodies == 0)
     {
@@ -101,7 +101,7 @@ int main(int argc, char **argv)
     fclose(fp);
     for (int t = 0; t < n_step; t++)
     {
-        struct node *root = (struct node *)calloc(1,sizeof(struct node));
+        struct node *root = (struct node *)calloc(1, sizeof(struct node));
         // inserisco ogni corpo nell'albero
         init_node(root);
         for (int i = 0; i < n_bodies; i++)
@@ -111,7 +111,6 @@ int main(int argc, char **argv)
 
         for (int i = 0; i < n_bodies; i++)
         {
-            // TODO: fix the force calculation ( the sun goes fucking fast for no reason at all)
             double force[2] = {0, 0};
             Tree__calculate_force(root, &bodies[i], THETA, force, G);
             bodies[i].vel[0] += (force[0] / bodies[i].mass) * DELTA_T;
@@ -120,17 +119,18 @@ int main(int argc, char **argv)
             bodies[i].pos[1] += bodies[i].vel[1] * DELTA_T;
         }
         Tree__free(root);
-        if(t%1000000==0){
-        print_sim(bodies, n_bodies);
-        printf("%.2f%%\r",((float)t/n_step)*100);
-        fflush(stdout);
+        if (t % 1000000 == 0)
+        {
+            print_sim(bodies, n_bodies);
+            printf("%.2f%%\r", ((float)t / n_step) * 100);
+            fflush(stdout);
         }
     }
 
     GET_TIME(finish);
-    elapsed = finish-start;
+    elapsed = finish - start;
 
-    print_times(elapsed,n_step,n_bodies);
+    print_times(elapsed, n_step, n_bodies);
 
     free(bodies);
 
